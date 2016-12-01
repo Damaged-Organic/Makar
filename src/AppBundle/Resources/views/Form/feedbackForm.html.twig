@@ -1,0 +1,63 @@
+{# src/AppBundle/Resources/views/Form/feedbackForm.html.twig #}
+{% form_theme feedbackForm _self %}
+
+<form action="{{ path('feedback_send', { '_locale': _locale }) }}" method="POST" id="envelopeForm" {{ form_enctype(feedbackForm) }}>
+    <div class="input-area">
+        {{ form_widget(feedbackForm.name, {
+            'attr': {
+                'id': "user-name", 'class': "field",
+                'data-rule-required': "true", 'data-msg-required': 'feedback.name.not_blank'|trans({}, "validators"),
+                'data-rule-minlength': "2", 'data-msg-minlength': 'feedback.name.length_min'|trans({}, "validators"),
+                'data-rule-maxlength': "200", 'data-msg-maxlength': 'feedback.name.length_max'|trans({}, "validators")
+            }
+        }) }}
+        {% block form_label_name %}
+            {{ block('base_form_label') }}
+            <label for="user-name" class="label"><span>{{ 'feedback.label.name'|trans({}, "forms") }}</span></label>
+        {% endblock %}
+    </div>
+    <div class="input-area">
+        {{ form_widget(feedbackForm.email, {
+            'attr': {
+                'id': "user-email", 'class': "field",
+                'data-rule-required': "true", 'data-msg-required': 'feedback.email.not_blank'|trans({}, "validators"),
+                'data-rule-email': "true", 'data-msg-email': 'feedback.email.valid'|trans({}, "validators")
+            }
+        }) }}
+        {% block form_label_email %}
+            {{ block('base_form_label') }}
+            <label for="user-email" class="label"><span>{{ 'feedback.label.email'|trans({}, "forms") }}</span></label>
+        {% endblock %}
+    </div>
+    <div class="input-area">
+        {{ form_widget(feedbackForm.subject, {
+            'attr': {
+                'id': "user-theme", 'class': "field",
+                'data-rule-minlength': "2", 'data-msg-minlength': 'feedback.subject.length_min'|trans({}, "validators"),
+                'data-rule-maxlength': "200", 'data-msg-maxlength': 'feedback.subject.length_max'|trans({}, "validators")
+            }
+        }) }}
+        {% block form_label_subject %}
+            {{ block('base_form_label') }}
+            <label for="user-theme" class="label"><span>{{ 'feedback.label.subject'|trans({}, "forms") }}</span></label>
+        {% endblock %}
+    </div>
+    <div class="input-area text">
+        {{ form_widget(feedbackForm.message, {
+            'attr': {
+                'id': "user-message", 'class': "field",
+                'data-rule-required': "true", 'data-msg-required': 'feedback.message.not_blank'|trans({}, "validators"),
+                'data-rule-minlength': "5", 'data-msg-minlength': 'feedback.message.length_min'|trans({}, "validators"),
+                'data-rule-maxlength': "1500", 'data-msg-maxlength': 'feedback.message.length_max'|trans({}, "validators")
+            }
+        }) }}
+        {% block form_label_message %}
+            {{ block('base_form_label') }}
+            <label for="user-message" class="label"><span>{{ 'feedback.label.message'|trans({}, "forms") }}</span></label>
+        {% endblock %}
+    </div>
+
+    {{ form_widget(feedbackForm._token) }}
+
+    <button type="submit"><span>{{ 'feedback.label.submit'|trans({}, "forms") }}</span></button>
+</form>

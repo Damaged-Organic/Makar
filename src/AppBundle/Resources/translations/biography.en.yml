@@ -1,0 +1,336 @@
+# src/AppBundle/Resources/translations/biography.en.yml
+block_intro:
+    name:  Andrey Vadimovich Makarevich
+    date:  December 11, 1953
+    place: Moscow
+    text: >
+        Soviet and Russian musician, singer, poet, composer, artist, producer, TV host, leader and the sole unchanging
+        member of the rock band Mashina Vremeni (Time Machine). Honored Artist of the RSFSR (1991), National Artist of
+        the Russian Federation (1999)
+
+block_family:
+    father:
+        name:  Vadim Grigorievich
+        role:  father
+        years: 1924 - 1996
+        text: >
+            architect, professor, instructor at the Moscow Architectural Institute
+
+    mother:
+        name:  Nina Markovna
+        role:  mother
+        years: 1926 - 1989
+        text: >
+            doctor, microbiologist with doctorate, employee at a science and research institute
+
+    sister:
+        name:  Natalia Vadimovna
+        role:  sister
+        years: 1962
+        text: >
+            architect
+
+    son:
+        name:  Ivan
+        role:  son
+        years: 1987
+        text: >
+            russian theatre and film actor
+
+    daughter_1:
+        name:  Dana
+        role:  daughter
+        years: 1975
+        text: >
+            vice president of a pharmaceutical company in the US
+
+    daughter_2:
+        name:  Anna
+        role:  daughter
+        years: 2000
+        text: >
+            to be continued…
+
+block_birth:
+    title: Born
+    date:  December 11, 1953
+    text: >
+        Andrey Makarevich was born in Moscow and spent his childhood years in Volkhonka, in a communal apartment of a
+        house that once belonged to the Volkhonsky princes, across from the Pushkin Museum of Visual Arts. Later the
+        family moved to the Komsomolsky Prospekt into a separate apartment
+
+block_childhood:
+    title: Childhood
+    text: >
+        As a child Andrey dreamed of becoming a diver and herpetologist, and put together a huge collection of butterflies,
+        read a lot of books and loved helping his father draw. Thanks to his father as well, Andrey became accustomed
+        to listening to music, which was always playing in his house: both records and live classical music -- Vadim
+        Grigorievich was a superb piano player. Andrey was also placed in a music school to study piano, but he quit
+        before completing three years there. But at 12 years old he independently began studying guitar -- his decision
+        was prompted by hearing the music of Bulat Okudzhava
+
+block_education:
+    title: School
+    first:
+        years: 1960 - 1970
+        text: >
+            Andrey Makarevich studied at the 19th Moscow school (a specialized school with a focus on English), where
+            during the last years of his time there, after hearing the Beatles in 1966, Andrey became a Beatles fan,
+            like many of his peers. That was when the band Mashina Vremeni was conceived and started. Initially the
+            school band that Andrey played and sang in was called The Kids and performed covers of songs in English
+
+    second:
+        years: 1969
+        text: >
+            Together with his Beatles-loving classmates Alexander Ivanov, Pavel Ruben, Igor Mazayev and Yuri Borzov,
+            and later with Sergey Kavagoe (a student from a nearby school), Andrey formed Mashina Vremeni, which,
+            having transitioned through so many members, exists to this day. Much of Andrey’s life and artistic work is
+            tied to this band. For almost 50 years now he has been its undying frontman, the author of the majority of
+            its lyrics, as well as the composer of a significant portion of its songs
+
+    third:
+        years: 1971
+        text: >
+            Accepted at the Moscow Architectural Institute
+
+    fourth:
+        years: 1974
+        text: >
+            Expelled (factually because of an internal party directive, due to forbidden involvement in rock music),
+            after which he found a job as an architect at the Giproteatr (“State institute of planning for theaters and
+            entertainment structures”), where he worked up until 1979. In 1975 he was accepted back at MARKHI
+            (Moscow Architectural Institute), finished school in 1977 and received an architect’s degree. However, all
+            of that time his primary work was with Mashina Vremeni
+
+block_time_machine:
+    title:    Mashina Vremeni
+    subtitle: legalization
+    year:     1979
+    part_1: >
+        A contract was signed with Roskoncert, which gave the band an official status, and from that day Andrey left
+        the Giproteatr and officially became a musician and performer. In the following years he would spend a huge
+        amount of time touring throughout the USSR. Together with the band he was in the films “Dusha” [Soul] (1982) and
+        “Nachni snachala” [Begin Again] (1986), where he played the lead role
+    part_2: >
+        In that same period of time, their first record, “Okhotniki za udachey” [Luck Hunters] came out illegally in the
+        US, without any involvement or knowledge on part of the band. Starting in 1980 the band was involved in a series
+        of futile discussions with the record company Melodiya. Their first album, “V dobryy chas” [Good luck] came out
+        in 1986. From then on, records started coming out regularly
+
+block_misc:
+    first:
+        years: 1982 - 1996
+        text: >
+            Andrey periodically held solo concerts in a typical “bard” manner -- with no accompanying musicians, with
+            one acoustic guitar, where he performed his own songs, not written for Mashina Vremeni. Most of them are
+            recorded as part of his solo discography
+    second:
+        years: 1990-е
+        text: >
+            Andrey took part in recording albums with the band Kvartal and produced Yuz Aleshkovskiy’s album “Okurochek”
+            [Cigarette Butt]. In that period he put out a few collections of poems and some books
+
+block_projects:
+    first:
+        title: Orkestr Kreolskogo Tango
+        year:  2001
+        text: >
+            In August of 2001 Andrey organized the project “Orkestr Kreolskogo Tango” (Orchestra of Creole Tango), which
+            plays jazz, blues, bossanova, rumba, swing and chanson. OKT brought together musicians from a number of
+            different bands
+
+    second:
+        title: Dzhazovye Transformacii
+        year:  2009
+        text: >
+            In 2009, the project “Dzhazovye Transformacii” (Jazz transformations) was formed, where Andrey took part
+            along with the “Yevgeniy Borets trio” and the Brill Brothers, in a completely new role -- as a jazz musician
+            and performer. The project includes vocalists I. Rodiles, P. Kasianova, D. Polenova and E. Beriashvili
+
+    third:
+        title: ACAPELLA EXPRESSS
+        year:  2013
+        text: >
+            In 2013 together with the ensemble “ACAPELLA EXPRESS”, the Yevgeniy Borets trio and trumpet player
+            K. Gevondian, the project “LOVE pesni pro lyubov” [LOVE songs about love] was created, and in 2014,
+            “Dzhazovye Transformacii” released the program “Idish-dzhaz” [Yiddish Jazz]. Both programs were hugely
+            successful in Russia, Israel and the US
+
+block_sidebars:
+    first: >
+        The Makarevich bloodline comes from the Belorussian area. Starting in 1915, Andrey’s ancestors began living in
+        Moscow
+    second: >
+        Underground performances by Mashina Vremeni in suburban clubs and the reproduction of recordings from those
+        concerts through cassette players made the band famous throughout the country
+
+collection_90:
+    title: collections, 90s
+    1:
+        year:  1991
+        title: «Vsyo Ochen’ Prosto. Rasskaziki». (Everything is So Simple. Little stories) @Radio I Svyaz (Radio and Signal)
+    2:
+        year:  1992
+        title: «Vsyo Ochen’ Prosto. Zhizn’ Gruppy 1968-1983)». (Everything is So Simple. The Life of the Band 1968—1983)
+    3:
+        year:  1998
+        title: «Smak. Vstrechi na kukhne», (The Taste. Meetings in the Kitchen) @М., Exmo-Press
+    4:
+        year:  1999
+        title: «Sem’ Tysyach Gorodov. Stikhi i Pesni” (Seven Thousand Cities. Lyrics and Songs) @М., Exmo-Press
+    5:
+        year:  1999
+        title: «Chto Takoe Daiving ili Akvalangi dlya Vsekh» (What Scuba Diving Is or Aqualungs for Everybody) (with Yury Belsky) @Exmo-Press, Trien
+
+exhibition_90:
+    title: art-shows, 90s
+    1:
+        year:  1990
+        title: First Art Show in Moscow (Palace of Youth, Moscow)
+    2:
+        year:  1991
+        title: Personal Art Show. Graphics by Andrey Makarevich. (Palace of Youth, Moscow)
+    3:
+        year:  1991
+        title: First Overseas Art Show. Caserta, Italy
+    4:
+        year:  1991—1993
+        title: Personal Art Show. Gallery “Borey” St. Petersburg
+    5:
+        year:  1991—1993
+        title: Joint Art Show with Andrey Belle. St. Petersburg
+    6:
+        year:  1991—1993
+        title: Series of Traveling Exhibits Through Various Russian Cities
+    7:
+        year:  1994
+        title: Andrey Makarevich, Andrey Belle. Gallery “Palitra” St. Petersburg
+    8:
+        year:  1995
+        title: Traveling Exibits. Caserta, Italy
+    9:
+        year:  1996
+        title: Personal Art Show. Riga, Latvia
+    10:
+        year:  1998
+        title: «Art-Manezh’98». The Central Exibitions Hall Manezh, Moscow
+    11:
+        year:  1998
+        title: Personal Art Show Gallery of Alla Bulyansky. Moscow
+    12:
+        year:  1999
+        title: Art-Salon «CDH’99». Central House of Artists. Moscow
+
+honours_90:
+    title: awards, 90s
+    1:
+        year:  February 1993
+        title: The Medal “Defender of Free Russia” — For the Performance of Civic Duty in the Defense of Democracy and Constitutional Order of August 19-21, 1991
+    2:
+        year:  June 1999
+        title: The Honor Order  — in Recognition of Merit for Music and the 30-th Anniversary of the band Mashina Vremeni
+
+collection_00:
+    title: collections, 00
+    1:
+        year:  2001
+        title: «Sam Ovtca». (The Sheep Himself) Autobiographycal prose, @Zakharov
+    2:
+        year:  2003
+        title: Andrey Makarevich, Songs and Lyrics @М., Zakharov
+    3:
+        year:  2004
+        title: «Mesto Gde Svet». (The Place With a Light) Autor’s Collection, @Exmo
+    4:
+        year:  2005
+        title: «Zanimatel’naya Narkologia» (Amusing Narcology) (comments by Dr. Mark Garber)
+    5:
+        year:  2008
+        title: «Muzhskaya Kulinariya: razgovory o ede I ne tol’ko» (Cooking for Men: conversations about food and beyond (comments by Mark Garber, dietitian) @М., Exmo-Press
+    6:
+        year:  2009
+        title: «Muzhskaya Kulinariya» (with Mark Garber)
+    7:
+        year:  2010
+        title: «Vnachale Byl Zvuk». (In the beginning there was Sound) @Exmo
+    8:
+        year:  2010
+        title: «Muzhskie Napitki, ili Zanimatel’naya Narkologiya-2». (Drinks for Men, or Amusing Narcology-2 @Exmo
+
+exhibition_00:
+    title: art-shows, 00
+    1:
+        year:  December 2003
+        title: Personal Art Show «Andrey Makarevich’s 50 Women». Manezh, Moscow
+    2:
+        year:  October 2004
+        title: «Andrei Makarevich ART»
+    3:
+        year:  November 2005
+        title: Personal Art Show «Fish & More» (San Francisco)
+    4:
+        year:  December 2005
+        title: Personal Art Show, Gallery of Alla Bulyansky, Central House of Artists
+    5:
+        year:  January 2006
+        title: Joint Art Show with Michael Cartellone (New York)
+    6:
+        year:  April 2010
+        title: FEMME at the Sculpture court in the National Arts Club, New York
+    7:
+        year:  April 2008
+        title: Andrey Makarevich, Andrey Belle. «Anatomy of Memory» (State Tretyakov Gallery, Moscow; Russian Museum, St. Petersburg)
+    8:
+        year:  May – June 2010
+        title: «Andrey Makarevich’ and Andrey Belle’s Environment». Gallery On Chistye Prudy
+
+honours_00:
+    title: awards, 00
+    1:
+        year:  December 2003
+        title: The Order of Merit for the Fatherland of the IV Degree — for major contributions to the progress of the current musical arts and in honor of his Fiftieth Birthday
+
+collection_10:
+    title: collections, 10
+    1:
+        year:  2010
+        title: «To chto liudi poiut po doroge domoi». What people sing on the way home. Author’s Collection, @Exmo
+    2:
+        year:  2011
+        title: «Nashe Vkusnoe Kino». Our Delicious Movies, @KoLibri, Azbuka-Atticus
+    3:
+        year:  2011
+        title: «Evino Yablokо». Eve’s Apple, @Exmo
+    4:
+        year:  2012
+        title: «Vsya Proza Andreya Makarevicha». All prose by Andrey Makarevich, @Exmo
+    5:
+        year:  2013
+        title: «Zhivye Istorii». Live Stories, @Exmo
+    6:
+        year:  2013
+        title: «Nevolshebnye Skazki». Non-magical fairy tales (Illustrated by Vladimir Tcesler), @RIPOL Classic
+    7:
+        year:  2013
+        title: «Mashina Vremeni v slovakh I obrazakh». Mashina Vremeni in words and images, @Exmo
+    8:
+        year:  2013
+        title: «Vse eshe Sam Ovtca». Still The Sheep Himself, @Exmo
+    9:
+        year:  2014
+        title: «Bylo, Est’, Budet». It was, It is, It will be, @Exmo
+    10:
+        year:  2014
+        title: «To, chto ya liubliu». That which I Love, @Exmo
+    11:
+        year:  2014
+        title: «Mashina Vremeni v slovakh I obrazakh». Time Machine in words and images, @Exmo
+
+honours_10:
+    title: awards, 10
+    1:
+        year:  March 2012
+        title: «Golden Cat» medal, Mayor's Diploma and Honourable Cup, for the art painting of the Tea Set — «Five o’cat». The Tea Set was created by Andrey Makarevich in collaboration with Emperor’s porcelain factory and took First Place on the Festival “Moon Cat”, in the “Graphics” category (Catalonia, Spain)
+    2:
+        year:  December 2014
+        title: Award of the Moscow Helsinki Group, for the Protection of Human Rights by Means of Culture

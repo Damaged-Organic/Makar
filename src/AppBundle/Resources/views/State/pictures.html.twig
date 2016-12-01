@@ -1,0 +1,91 @@
+{# src/AppBundle/Resources/views/State/pictures.html.twig #}
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block title %}
+    {{ metadata.title|default("") }} | {{ 'common.title'|trans }}
+{% endblock %}
+
+{% block meta %}
+    <meta name="description" content="{{ metadata.description|default("") }}" >
+    <meta name="robots" content="{{ metadata.robots }}">
+    {# Locale reference #}
+    <link rel="canonical" href="{{ url('pictures_default') }}" />
+    <link rel="alternate" href="{{ url('pictures', { '_locale': "en" }) }}" hreflang="en-us" />
+    <link rel="alternate" href="{{ url('pictures', { '_locale': "ru" }) }}" hreflang="ru-ru" />
+    <link rel="alternate" href="{{ url('pictures', { '_locale': "ru" }) }}" hreflang="x-default" />
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {% stylesheets
+        'bundles/app/css/fonts_import.css'
+        'bundles/app/css/reset.css'
+        'bundles/app/css/common.css'
+        'bundles/app/css/pictures.css' output='bundles/app/css/compiled/compiled_pictures.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}">
+    {% endstylesheets %}
+{% endblock %}
+
+{% block sideBar %}
+    {% include "AppBundle:Common:header.html.twig" with {
+        'icon': "frame-icon.png", 'headline': 'pictures.headline'|trans, 'subheadline': 'pictures.subheadline'|trans
+    } %}
+
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+    <main id="content">
+        <section class="grid">
+
+            {% for picture in pictures %}
+                <div class="cell"
+                     data-picture="{{ vich_uploader_asset(picture, 'pictureFile')|imagine_filter('picture_watermark') }}"
+                     data-title="{{ picture.title }} {{ ( picture.year ) ? "- " ~ picture.year : "" }}">
+                    <div class="inner">
+                        <a href="#">
+                            <figure><img src="{{ vich_uploader_asset(picture, 'pictureFile')|imagine_filter('picture_thumb') }}" alt="{{ picture.pictureName }}"></figure>
+                            <div class="entitled-holder">
+                                <span class="icon"><img src="{{ asset('bundles/app/images/icons/eye-icon.png') }}" alt="eye-icon.png"></span>
+                                <div class="entitled">
+                                    <span class="line"></span>
+                                    <span class="line bottom"></span>
+                                    <h2>{{ picture.title|truncate(17) }}</h2>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            {% else %}
+                <span class="empty-content">{{ 'pictures.empty'|trans }}</span>
+            {% endfor %}
+
+        </section>
+        <div id="gallery-holder" class="popUp">
+            <span class="close"></span>
+            <div id="gallery">
+                <figure id="picturePlace"></figure>
+                <div id="pictureInfo">
+                    <span></span>
+                    <span>1/{{ pictures|length }}</span>
+                </div>
+            </div>
+            <span class="arrow left"></span>
+            <span class="arrow right"></span>
+        </div>
+    </main>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {% javascripts
+        'bundles/app/js/modules/toggleScroll.js'
+        'bundles/app/js/modules/popUp.js'
+        'bundles/app/js/modules/menu.js'
+        'bundles/app/js/modules/gallery.js'
+        'bundles/app/js/app/pictureApp.js' output='bundles/app/js/compiled/compiled_pictures.js' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

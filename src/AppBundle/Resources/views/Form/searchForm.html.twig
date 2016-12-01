@@ -1,0 +1,16 @@
+{# src/AppBundle/Resources/views/Form/searchForm.html.twig #}
+<form action="{{ path('search_send', { '_locale': _locale }) }}" method="POST" id="searchForm" {{ form_enctype(searchForm) }}>
+    <label>
+        {{ form_widget(searchForm.searchString, {
+            'attr': {
+                'autofocus': "autofocus",
+                'data-rule-required': "true", 'data-msg-required': 'search.search_string.not_blank'|trans({}, "validators"),
+                'data-rule-minlength': "2", 'data-msg-minlength': 'search.search_string.length_min'|trans({}, "validators"),
+                'data-rule-maxlength': "100", 'data-msg-maxlength': 'search.search_string.length_max'|trans({}, "validators")
+            }
+        }) }}
+        <span class="text">{{ 'search.question'|trans }}</span>
+    </label>
+
+    {{ form_widget(searchForm._token) }}
+</form>

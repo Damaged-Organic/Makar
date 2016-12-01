@@ -1,0 +1,93 @@
+{# src/AppBundle/Resources/views/State/blogList.html.twig #}
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block title %}
+    {{ metadata.title|default("") }} | {{ 'common.title'|trans }}
+{% endblock %}
+
+{% block meta %}
+    <meta name="description" content="{{ metadata.description|default("") }}" >
+    <meta name="robots" content="{{ metadata.robots }}">
+    {# Locale reference #}
+    <link rel="canonical" href="{{ url('blog_default') }}" />
+    <link rel="alternate" href="{{ url('blog', { '_locale': "en" }) }}" hreflang="en-us" />
+    <link rel="alternate" href="{{ url('blog', { '_locale': "ru" }) }}" hreflang="ru-ru" />
+    <link rel="alternate" href="{{ url('blog', { '_locale': "ru" }) }}" hreflang="x-default" />
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {% stylesheets
+        'bundles/app/css/fonts_import.css'
+        'bundles/app/css/reset.css'
+        'bundles/app/css/common.css'
+        'bundles/app/css/blog.css' output='bundles/app/css/compiled/compiled_blogList.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}">
+    {% endstylesheets %}
+{% endblock %}
+
+{% block sideBar %}
+    {% include "AppBundle:Common:header.html.twig" with {
+        'icon': "pen-icon.png", 'headline': 'blogList.headline'|trans, 'subheadline': 'blogList.subheadline'|trans
+    } %}
+
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+    <main id="content">
+        <div class="grid s1200 lift-up-container">
+            {% for article in articles %}
+                {% if loop.first %}
+                    <div class="row clearfix">
+                {% endif %}
+
+                <div class="cell lift-up-item">
+                    <div class="inner">
+                        <div class="content">
+                            <div class="centered">
+                                <h2>{{ article.title|truncate(54) }}</h2>
+                                <time datetime="{{ article.date|date("Y-m-d") }}">
+                                    {{ article.date|date("d") }} {{ (article.date|date("F")|lower)|trans({}, "monthNames") }},
+                                    {{ article.date|date("Y") }}
+                                </time>
+                                <span class="smallRhombus"></span>
+                                <a href="{{ path('blog', { 'articleId': article.id, 'slug': article.slug }) }}" class="button"><span>{{ 'blogList.details'|trans }}</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {% if loop.last %}
+                    </div>
+                {% elseif loop.index is divisible by(4) %}
+                    </div>
+                    <div class="row clearfix">
+                {% endif %}
+            {% else %}
+                <span class="empty-content">{{ 'blogList.empty'|trans }}</span>
+            {% endfor %}
+        </div>
+        <div id="loader-holder">
+            <div class="loader"><span class="fa fa-spinner"></span></div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.min.js"></script>
+
+    {% javascripts
+        'bundles/app/js/modules/helpers.js'
+        'bundles/app/js/modules/toggleScroll.js'
+        'bundles/app/js/modules/menu.js'
+        'bundles/app/js/modules/loadTemplate.js'
+        'bundles/app/js/modules/lift.js'
+        'bundles/app/js/modules/blog.js'
+        'bundles/app/js/app/blogApp.js' output='bundles/app/js/compiled/compiled_blogList.js' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

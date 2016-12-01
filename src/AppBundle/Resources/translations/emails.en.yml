@@ -1,0 +1,5 @@
+# src/AppBundle/Resources/translations/emails.en.yml
+feedback:
+    no_subject:   No subject
+    sent_message: sent a new feedback message
+    at_date:      Message was sent at

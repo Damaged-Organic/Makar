@@ -1,0 +1,54 @@
+{# src/AppBundle/Resources/views/Common/sideMenu.html.twig #}
+<div class="toggle-menu-holder white">
+    <div id="toggle-menu">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+    </div>
+    <span class="text">{{ 'common.menu'|trans }}</span>
+</div>
+<div id="menu-holder">
+    <div class="toggle-widgets">
+        <ul>
+            {% if app.request.locale == default_locale %}
+                {% set locale_link = path(route, { '_locale': 'en' }) %}
+                {% set locale_text = 'EN' %}
+            {% else %}
+                {% set locale_link = path(route, { '_locale': 'ru' }) %}
+                {% set locale_text = 'RU' %}
+            {% endif %}
+
+            <li><a href="{{ locale_link }}" class="rhombus whiteIn" id="toggle-langs" title="{{ locale_text }}"><span>{{ locale_text }}</span></a></li>
+            <li>
+                <a href="{{ path('search', { '_locale': app.request.locale }) }}" class="rhombus whiteIn" id="toggle-search" title="{{ 'common.tooltip.search'|trans }}">
+                    <span class="fa fa-search"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <nav id="menu">
+        {{ knp_menu_render('main', { 'currentClass': 'active' }) }}
+    </nav>
+    <ul id="social">
+        <li>
+            <a href="https://www.facebook.com/makarevichav" class="rhombus whiteIn" title="Facebook" target="_blank">
+                <span class="fa fa-facebook"></span>
+            </a>
+        </li>
+        <li>
+            <a href="https://itunes.apple.com/ru/artist/andrej-makarevic/id658212865" class="rhombus whiteIn" title="iTunes" target="_blank">
+                <span class="fa fa-apple"></span>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.youtube.com/user/mashinavremeniru" class="rhombus whiteIn" title="YouTube" target="_blank">
+                <span class="fa fa-youtube"></span>
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('feedback', { '_locale': app.request.locale }) }}" class="rhombus whiteIn" title="{{ 'common.tooltip.feedback'|trans }}">
+                <span class="fa fa-envelope"></span>
+            </a>
+        </li>
+    </ul>
+</div>

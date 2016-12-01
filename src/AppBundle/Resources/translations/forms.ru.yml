@@ -1,0 +1,8 @@
+# src/AppBundle/Resources/translations/forms.ru.yml
+feedback:
+    label:
+        name:    Как я могу к вам обращаться?
+        email:   На какой e-mail мне вам ответить?
+        subject: О чем вы бы хотели меня спросить?
+        message: Есть интересная история?
+        submit:  Рассказать

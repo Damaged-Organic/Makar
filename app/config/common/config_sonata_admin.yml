@@ -1,0 +1,186 @@
+# app/config/common/config_sonata_admin.yml
+doctrine:
+    dbal:
+        types:
+            json: Sonata\Doctrine\Types\JsonType
+
+    orm:
+        entity_managers:
+            default:
+                mappings:
+                    SonataUserBundle: ~
+                    FOSUserBundle: ~
+                    ApplicationSonataUserBundle: ~
+
+twig:
+    form:
+        resources:
+            - 'SonataCoreBundle:Form:datepicker.html.twig'
+
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        sonata.admin.block.admin_list:
+            contexts: [admin]
+        sonata.admin.block.search_result:
+            contexts: [admin]
+        sonata.user.block.menu:
+        sonata.user.block.account:
+        sonata.block.service.text:
+
+parameters:
+    sonata.user.admin.user.class: AppBundle\Admin\UserAdmin
+
+sonata_user:
+    #security_acl: true
+    manager_type: orm
+    class:
+        user:         Application\Sonata\UserBundle\Entity\User
+        group:        Application\Sonata\UserBundle\Entity\Group
+
+fos_user:
+    db_driver:     orm
+    firewall_name: main
+    user_class:    Application\Sonata\UserBundle\Entity\User
+
+    group:
+        group_class:   Application\Sonata\UserBundle\Entity\Group
+        group_manager: sonata.user.orm.group_manager
+
+    service:
+        user_manager: sonata.user.orm.user_manager
+
+sonata_admin:
+    title:      "Dashboard"
+    #title_logo: bundles/app/images/boilerplate_logo.jpg
+    dashboard:
+        blocks:
+            -
+                position: left
+                type:     sonata.admin.block.admin_list
+            -
+                position: right
+                type:     sonata.block.service.text
+                settings:
+                    content: >
+                        <h2>Система управления содержимым</h2>
+                        <p>
+                            На вашем сайте для модерирования доступны следующие разделы:
+                            <br><br>
+                            <h4>Контент</h4>
+                            Секция для управления видимым пользователю содержимым сайта.
+                            <br><br>
+                            <h4>SEO (Поисковая оптимизация)</h4>
+                            В основном это служебная информация для поисковых роботов.
+                            <br><br>
+                            <h4>Пользователи</h4>
+                            Контроль пользователей системы управления.
+                        </p>
+    templates:
+        layout:     ApplicationSonataUserBundle:Admin:standard_layout.html.twig
+        user_block: ApplicationSonataUserBundle:Admin\Core:user_block.html.twig
+
+services:
+    sonata.user.admin.group:
+        abstract: true
+        public: false
+
+    #sonata.admin.menu:
+    #    class: MenuBundle\Admin\MenuAdmin
+    #    tags:
+    #        - { name:  sonata.admin, manager_type: orm, group: "Меню", label: "Пункты меню"}
+    #    arguments:
+    #        - ~
+    #        - MenuBundle\Entity\Menu
+    #        - ~
+    #    calls:
+    #        - [ setTranslationDomain, [MenuBundle] ]
+    #        - [ setRouter, ["@router"] ]
+
+    sonata.admin.event:
+        class: AppBundle\Admin\EventAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Контент", label: "Афиша" }
+        arguments:
+            - ~
+            - AppBundle\Entity\Event
+            - ~
+        calls:
+            - [ setTranslationDomain, [AppBundle] ]
+
+    sonata.admin.blog_article:
+        class: AppBundle\Admin\BlogArticleAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Контент", label: "Блог" }
+        arguments:
+            - ~
+            - AppBundle\Entity\BlogArticle
+            - ~
+        calls:
+            - [ setTranslationDomain, [AppBundle] ]
+
+    sonata.admin.blog_article_uploaded_file:
+        class: AppBundle\Admin\BlogArticleUploadedFileAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "", label: "", show_in_dashboard: false }
+        arguments:
+            - ~
+            - AppBundle\Entity\BlogArticleUploadedFile
+            - ~
+        calls:
+            - [ setTranslationDomain, [AppBundle] ]
+
+    sonata.admin.album:
+        class: AppBundle\Admin\AlbumAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Контент", label: "Музыка" }
+        arguments:
+            - ~
+            - AppBundle\Entity\Album
+            - ~
+        calls:
+            - [ setTranslationDomain, [AppBundle] ]
+
+    sonata.admin.album_song:
+        class: AppBundle\Admin\AlbumSongAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "", label: "", show_in_dashboard: false }
+        arguments:
+            - ~
+            - AppBundle\Entity\AlbumSong
+            - ~
+        calls:
+            - [ setTranslationDomain, [AppBundle] ]
+
+    sonata.admin.book:
+        class: AppBundle\Admin\BookAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Контент", label: "Книги" }
+        arguments:
+            - ~
+            - AppBundle\Entity\Book
+            - ~
+        calls:
+            - [ setTranslationDomain, [AppBundle] ]
+
+    sonata.admin.picture:
+        class: AppBundle\Admin\PictureAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Контент", label: "Картины" }
+        arguments:
+            - ~
+            - AppBundle\Entity\Picture
+            - ~
+        calls:
+            - [ setTranslationDomain, [AppBundle] ]
+
+    sonata.admin.metadata:
+            class: AppBundle\Admin\MetadataAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: "SEO", label: "Метаданные" }
+            arguments:
+                - ~
+                - AppBundle\Entity\Metadata
+                - ~
+            calls:
+                - [ setTranslationDomain, [AppBundle] ]

@@ -1,0 +1,9 @@
+{# src/AppBundle/Resources/views/Common/header.html.twig #}
+<header id="header">
+    <div class="logo"><a href="{{ path('index', { '_locale': app.request.locale }) }}"></a></div>
+    <div class="headline">
+        <span class="icon"><img src="{{ asset('bundles/app/images/icons/' ~ icon) }}" alt="{{ icon }}"></span>
+        <h1>{{ headline }}</h1>
+        <span class="subscription">{{ subheadline }}</span>
+    </div>
+</header>

@@ -1,0 +1,118 @@
+{# src/AppBundle/Resources/views/State/books.html.twig #}
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block title %}
+    {{ metadata.title|default("") }} | {{ 'common.title'|trans }}
+{% endblock %}
+
+{% block meta %}
+    <meta name="description" content="{{ metadata.description|default("") }}" >
+    <meta name="robots" content="{{ metadata.robots }}">
+    {# Locale reference #}
+    <link rel="canonical" href="{{ url('books_default') }}" />
+    <link rel="alternate" href="{{ url('books', { '_locale': "en" }) }}" hreflang="en-us" />
+    <link rel="alternate" href="{{ url('books', { '_locale': "ru" }) }}" hreflang="ru-ru" />
+    <link rel="alternate" href="{{ url('books', { '_locale': "ru" }) }}" hreflang="x-default" />
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {% stylesheets
+        'bundles/app/css/fonts_import.css'
+        'bundles/app/css/perfect-scrollbar.min.css'
+        'bundles/app/css/reset.css'
+        'bundles/app/css/common.css'
+        'bundles/app/css/books.css' output='bundles/app/css/compiled/compiled_books.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}">
+    {% endstylesheets %}
+{% endblock %}
+
+{% block sideBar %}
+    {% include "AppBundle:Common:header.html.twig" with {
+        'icon': "book-icon.png", 'headline': 'books.headline'|trans, 'subheadline': 'books.subheadline'|trans
+    } %}
+
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+    <main id="content">
+        <div class="grid s1200">
+            {% for book in books %}
+                {% if loop.first %}
+                    <div class="row clearfix">
+                {% endif %}
+
+                <div class="cell" data-book-id="{{ book.id }}">
+                    <div class="inner">
+                        <a href="#{{ book.slug }}" class="book">
+                            <figure><img src="{{ vich_uploader_asset(book, 'coverFile')|imagine_filter('book_thumb') }}" alt="{{ book.coverName }}"></figure>
+                            <div class="description">
+                                <h2>{{ book.title|truncate(45) }}</h2>
+                                <span class="rhombusSmall"></span>
+                                <span class="button">
+                                    <span>{{ 'books.details'|trans }}</span>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                {% if loop.last %}
+                    </div>
+                {% elseif loop.index is divisible by(4) %}
+                    </div>
+                    <div class="row clearfix">
+                {% endif %}
+            {% else %}
+                <span class="empty-content">{{ 'books.empty'|trans }}</span>
+            {% endfor %}
+        </div>
+        <div id="books-holder" class="popUp">
+            <span class="close vise-versa"></span>
+
+            {% for book in books %}
+                <div class="book book-{{ book.id }}">
+                    <article class="content">
+                        <div class="headline">
+                            <span class="subscription first">{{ 'books.pages_number'|transchoice(book.pagesNumber) }}</span>
+                            <h2>{{ book.title }}</h2>
+                            <span class="subscription">{{ book.year }}</span>
+                        </div>
+                        <section class="info clearfix">
+                            <aside class="cover">
+                                <figure><img src="{{ vich_uploader_asset(book, 'coverFile') }}" alt="{{ book.coverName }}"></figure>
+                                <a href="{{ book.buyLink }}" class="button vice-versa" target="_blank"><span>{{ 'books.buy'|trans }}</span></a>
+                            </aside>
+                            <div class="description">
+                                {% if book.description %}
+
+                                    {{ book.description|raw }}
+
+                                {% else %}
+                                    <p>{{ 'books.no_description'|trans }}</p>
+                                {% endif %}
+                            </div>
+                        </section>
+                    </article>
+                </div>
+            {% endfor %}
+
+        </div>
+    </main>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {% javascripts
+        'bundles/app/js/lib/perfect-scrollbar.jquery.min.js'
+        'bundles/app/js/modules/toggleScroll.js'
+        'bundles/app/js/modules/popUp.js'
+        'bundles/app/js/modules/menu.js'
+        'bundles/app/js/modules/books.js'
+        'bundles/app/js/app/bookApp.js' output='bundles/app/js/compiled/compiled_books.js' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

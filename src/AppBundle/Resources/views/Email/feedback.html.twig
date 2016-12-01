@@ -1,0 +1,8 @@
+{# src/AppBundle/Resources/views/Email/feedback.html.twig #}
+<p>{{ feedback.name }} ({{ feedback.email }}) {{ 'feedback.sent_message'|trans({}, "emails", default_locale) }}:</p>
+
+<p>{{ ( feedback.subject ) ? "'" ~ feedback.subject ~ "'" : "" }}</p>
+
+<p>{{ feedback.message }}</p>
+
+<p>{{ 'feedback.at_date'|trans({}, "emails", default_locale) }} {{ "now"|date("H:i, d-m-Y") }}.</p>

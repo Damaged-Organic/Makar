@@ -1,0 +1,7 @@
+# src/AppBundle/Resources/translations/responses.en.yml
+feedback:
+    success: Thank you for your feedback! I'll reach you as soon as possible
+    fail:    Something went wrong. Please, try to send the message again
+
+search:
+    no_results: No matches found

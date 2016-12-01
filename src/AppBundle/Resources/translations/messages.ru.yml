@@ -1,0 +1,86 @@
+# src/AppBundle/Resources/translations/messages.ru.yml
+fallback:
+    explanation: >
+        В данный момент версия сайта не предназначена для мобильных устройств. Это не значит, что вы не можете зайти на
+        сайт, однако, скорее всего, вы испортите себе впечатление от просмотра!
+    link: все равно перейти
+
+common:
+    title: Личный Сайт Андрея Макаревича
+    tooltip:
+        feedback: Связаться со мной
+        search:   Поиск
+    menu: Меню
+    footer: >
+        © Андрей Макаревич. Web Production by <a href="%developers_agency_link%">%developers_agency_name%</a>, 2015 - %current_year%.
+        Использование собственных материалов сайта без согласия владельца запрещено.
+
+404:
+    title:    404
+    headline: Страница не существует
+    backlink: Вернуться на главную
+
+index:
+    headline:
+        h1: Макаревич
+        h2: Андрей
+    subheadline:
+        one: личный
+        two: блог
+
+events:
+    headline:    Мероприятия
+    subheadline: афиша
+    empty: >
+        В данный момент меропрятий не запланировано
+    details:     билеты
+    no_details:  билетов нет
+
+music:
+    headline:     Музыка
+    subheadline:  альбомы
+    empty_albums: >
+        К сожалению, каталог альбомов пуст
+    empty_songs: >
+        Список песен для данного альбома пуст
+    details:      подробнее
+    songs_number: '{0}| %count% песня | %count% песни | %count% песен'
+    buy:          купить
+    songs:        Песни
+    description:  Описание
+    time_not_set: время не указано
+
+books:
+    headline:       Литература
+    subheadline:    книги
+    empty: >
+        К сожалению, каталог книг пуст
+    details:        подробнее
+    pages_number:   '{0}| %count% страница | %count% страницы | %count% страниц'
+    buy:            купить
+    no_description: Нет аннотации
+
+pictures:
+    headline:       Графика
+    subheadline:    картины
+    empty: >
+        К сожалению, галерея пуста
+
+blogList:
+    headline:    Блог
+    subheadline: записи
+    empty: >
+        К сожалению, на данный момент блог пуст
+    details:     читать
+
+blogArticle:
+    views:    '{0}| %count% просмотр | %count% просмотра | %count% просмотров'
+    backlink: Назад к записям
+
+biography:
+    headline:    Биография
+    subheadline: обо мне
+
+search:
+    question: Хотите что-то найти?
+    details:  подробнее...

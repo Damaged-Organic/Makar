@@ -1,0 +1,45 @@
+{# app/Resources/TwigBundle/views/Exception/error404.html.twig #}
+{% extends '::base.html.twig' %}
+
+{# Fast "_locale" hack for 404 #}
+{% set host = app.request.getHost|split(".") %}
+{% if host[0] is defined %}
+    {% set locale = ( host[0] is sameas('en') ) ? 'en' : 'ru' %}
+{% else %}
+    {% set locale = 'ru' %}
+{% endif %}
+
+{% block title %}
+    {{ '404.title'|trans({}, "messages", locale) }} - {{ 'common.title'|trans({}, "messages", locale) }}
+{% endblock %}
+
+{% block meta %}
+    <meta name="robots" content="noindex, follow, noarchive">
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    {% stylesheets
+        'bundles/app/css/fonts_import.css'
+        'bundles/app/css/reset.css'
+        'bundles/app/css/common.css'
+        'bundles/app/css/404.css' output='bundles/app/css/compiled/compiled_404.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}">
+    {% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+    <div id="page">
+        <div class="triangle">
+            <span>{{ '404.title'|trans({}, "messages", locale) }}</span>
+        </div>
+        <section class="centered">
+            <h1>{{ '404.headline'|trans({}, "messages", locale) }}</h1>
+            <span class="small-rhombus"></span>
+            <a href="{{ path('index', { '_locale': locale }) }}" class="button ">
+                <span>{{ '404.backlink'|trans({}, "messages", locale) }}</span>
+            </a>
+        </section>
+    </div>
+{% endblock %}

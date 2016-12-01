@@ -1,0 +1,11 @@
+{# src/AppBundle/Resources/views/Common/footer.html.twig #}
+<div id="footer">
+    <div class="agency-logo">
+        <a href="{{ developers_agency.link }}"><img src="{{ asset('bundles/app/images/logo_bird.png') }}" alt="{{ developers_agency.name }}"></a>
+    </div>
+    <footer>
+        <small>
+            {{ 'common.footer'|trans({ '%developers_agency_name%': developers_agency.name, '%developers_agency_link%': developers_agency.link, '%current_year%': "now"|date('Y') })|raw }}
+        </small>
+    </footer>
+</div>

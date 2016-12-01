@@ -1,0 +1,371 @@
+{# src/AppBundle/Resources/views/State/biography.html.twig #}
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block title %}
+    {{ metadata.title|default("") }} | {{ 'common.title'|trans }}
+{% endblock %}
+
+{% block meta %}
+    <meta name="description" content="{{ metadata.description|default("") }}" >
+    <meta name="robots" content="{{ metadata.robots }}">
+    {# Locale reference #}
+    <link rel="canonical" href="{{ url('biography_default') }}" />
+    <link rel="alternate" href="{{ url('biography', { '_locale': "en" }) }}" hreflang="en-us" />
+    <link rel="alternate" href="{{ url('biography', { '_locale': "ru" }) }}" hreflang="ru-ru" />
+    <link rel="alternate" href="{{ url('biography', { '_locale': "ru" }) }}" hreflang="x-default" />
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {% stylesheets
+        'bundles/app/css/fonts_import.css'
+        'bundles/app/css/perfect-scrollbar.min.css'
+        'bundles/app/css/reset.css'
+        'bundles/app/css/common.css'
+        'bundles/app/css/biography.css' output='bundles/app/css/compiled/compiled_biography.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}">
+    {% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+    <div id="page">
+        <main id="content">
+            <div class="section full intro">
+                {% include "AppBundle:Common:header.html.twig" with {
+                    'icon': "sign-icon.png", 'headline': 'biography.headline'|trans, 'subheadline': 'biography.subheadline'|trans
+                } %}
+
+                {% include "AppBundle:Common:sideMenu.html.twig" %}
+
+                <div class="centered">
+                    <h2>{{ 'block_intro.name'|trans({}, "biography") }}</h2>
+                    <span class="date">{{ 'block_intro.date'|trans({}, "biography") }}</span>
+                    <span class="place">{{ 'block_intro.place'|trans({}, "biography") }}</span>
+                    <p>{{ 'block_intro.text'|trans({}, "biography") }}</p>
+                </div>
+                <div class="arrow-down"></div>
+            </div>
+            <div class="section full family">
+                <div class="reference animate ref" data-shift="100">
+                    <p>{{ 'block_sidebars.first'|trans({}, "biography") }}</p>
+                </div>
+                <ul>
+                    <li class="member father animate" data-shift="100">
+                        <h2>{{ 'block_family.father.name'|trans({}, "biography") }}</h2>
+                        <span class="role">{{ 'block_family.father.role'|trans({}, "biography") }}</span>
+                        <span class="date">{{ 'block_family.father.years'|trans({}, "biography") }}</span>
+                        <span class="underline"></span>
+                        <p>{{ 'block_family.father.text'|trans({}, "biography") }}</p>
+                    </li>
+                    <li class="member mother animate" data-shift="100">
+                        <h2>{{ 'block_family.mother.name'|trans({}, "biography") }}</h2>
+                        <span class="role">{{ 'block_family.mother.role'|trans({}, "biography") }}</span>
+                        <span class="date">{{ 'block_family.mother.years'|trans({}, "biography") }}</span>
+                        <span class="underline"></span>
+                        <p>{{ 'block_family.mother.text'|trans({}, "biography") }}</p>
+                    </li>
+                    <li class="member sister animate" data-shift="100">
+                        <h2>{{ 'block_family.sister.name'|trans({}, "biography") }}</h2>
+                        <span class="role">{{ 'block_family.sister.role'|trans({}, "biography") }}</span>
+                        <span class="date">{{ 'block_family.sister.years'|trans({}, "biography") }}</span>
+                        <span class="underline"></span>
+                        <p>{{ 'block_family.sister.text'|trans({}, "biography") }}</p>
+                    </li>
+                    <li class="member older-daughter animate" data-shift="100">
+                        <h2>{{ 'block_family.daughter_1.name'|trans({}, "biography") }}</h2>
+                        <span class="role">{{ 'block_family.daughter_1.role'|trans({}, "biography") }}</span>
+                        <span class="date">{{ 'block_family.daughter_1.years'|trans({}, "biography") }}</span>
+                        <span class="underline"></span>
+                        <p>{{ 'block_family.daughter_1.text'|trans({}, "biography") }}</p>
+                    </li>
+                    <li class="member son animate" data-shift="100">
+                        <h2>{{ 'block_family.son.name'|trans({}, "biography") }}</h2>
+                        <span class="role">{{ 'block_family.son.role'|trans({}, "biography") }}</span>
+                        <span class="date">{{ 'block_family.son.years'|trans({}, "biography") }}</span>
+                        <span class="underline"></span>
+                        <p>{{ 'block_family.son.text'|trans({}, "biography") }}</p>
+                    </li>
+                    <li class="member daugther animate" data-shift="100">
+                        <h2>{{ 'block_family.daughter_2.name'|trans({}, "biography") }}</h2>
+                        <span class="role">{{ 'block_family.daughter_2.role'|trans({}, "biography") }}</span>
+                        <span class="date">{{ 'block_family.daughter_2.years'|trans({}, "biography") }}</span>
+                        <span class="underline"></span>
+                        <p>{{ 'block_family.daughter_2.text'|trans({}, "biography") }}</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="section genus">
+                <div class="grid s1200">
+                    <div class="row">
+                        <div class="cell s2 info animate" data-shift="100">
+                            <p>{{ 'block_birth.text'|trans({}, "biography") }}</p>
+                        </div>
+                        <div class="cell s1 centered">
+                            <div class="animate" data-shift="50">
+                                <span class="small-rhombus"></span>
+                                <h2>{{ 'block_birth.title'|trans({}, "biography") }}</h2>
+                                <span class="underline"></span>
+                                <span class="date">{{ 'block_birth.date'|trans({}, "biography") }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row vise-versa">
+                        <div class="cell s1 centered">
+                            <div class="animate" data-shift="0">
+                                <span class="small-rhombus"></span>
+                                <h2>{{ 'block_childhood.title'|trans({}, "biography") }}</h2>
+                            </div>
+                        </div>
+                        <div class="cell s2 info animate" data-shift="100">
+                            <p>{{ 'block_childhood.text'|trans({}, "biography") }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section education">
+                <div class="grid s1200">
+                    <div class="row">
+                        <div class="cell animate" data-shift="200">
+                            <h2>{{ 'block_education.title'|trans({}, "biography") }}</h2>
+                            <span class="date">{{ 'block_education.first.years'|trans({}, "biography") }}</span>
+                            <span class="underline"></span>
+                            <p>{{ 'block_education.first.text'|trans({}, "biography") }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="cell animate" data-shift="200">
+                            <span class="date">{{ 'block_education.second.years'|trans({}, "biography") }}</span>
+                            <span class="underline"></span>
+                            <p>{{ 'block_education.second.text'|trans({}, "biography") }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="cell animate" data-shift="200">
+                            <span class="date">{{ 'block_education.third.years'|trans({}, "biography") }}</span>
+                            <span class="underline"></span>
+                            <p>{{ 'block_education.third.text'|trans({}, "biography") }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="cell animate" data-shift="200">
+                            <span class="date">{{ 'block_education.fourth.years'|trans({}, "biography") }}</span>
+                            <span class="underline"></span>
+                            <p>{{ 'block_education.fourth.text'|trans({}, "biography") }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section acitivity">
+                <div class="reference animate ref" data-shift="100">
+                    <p>{{ 'block_sidebars.second'|trans({}, "biography") }}</p>
+                </div>
+                <div class="grid s1200">
+                    <div class="row">
+                        <div class="cell animate" data-shift="200">
+                            <span class="small-rhombus"></span>
+                            <h2>{{ 'block_time_machine.title'|trans({}, "biography") }}</h2>
+                            <span>{{ 'block_time_machine.subtitle'|trans({}, "biography") }}</span>
+                            <span class="date">{{ 'block_time_machine.year'|trans({}, "biography") }}</span>
+                            <span class="underline"></span>
+                            <p>{{ 'block_time_machine.part_1'|trans({}, "biography") }}</p>
+                            <p>{{ 'block_time_machine.part_2'|trans({}, "biography") }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="cell">
+                            <ul>
+                                <li class="animate" data-shift="200">
+                                    <span class="date">{{ 'block_misc.first.years'|trans({}, "biography") }}</span>
+                                    <span class="underline"></span>
+                                    <p>{{ 'block_misc.first.text'|trans({}, "biography") }}</p>
+                                </li>
+                                <li class="animate" data-shift="200">
+                                    <span class="date">{{ 'block_misc.second.years'|trans({}, "biography") }}</span>
+                                    <span class="underline"></span>
+                                    <p>{{ 'block_misc.second.text'|trans({}, "biography") }}</p>
+                                </li>
+                            </ul>
+                            <div class="hidden-holder">
+                                <div class="button-holder animate" data-shift="200">
+                                    <span class="button vice-versa" data-type="collections"><span>{{ 'collection_90.title'|trans({}, "biography") }}</span></span>
+                                    <span class="button vice-versa" data-type="exhibitions"><span>{{ 'exhibition_90.title'|trans({}, "biography") }}</span></span>
+                                    <span class="button vice-versa" data-type="honors"><span>{{ 'honours_90.title'|trans({}, "biography") }}</span></span>
+                                </div>
+                                <div class="hidden-info collections">
+                                    <span class="close close-hidden"></span>
+                                    <div class="info">
+                                        <ul>
+                                            {% for i in range(1, 5) %}
+                                                <li>
+                                                    <span>{{ ('collection_90.' ~ i ~ '.year')|trans({}, "biography") }}</span>
+                                                    <span class="underline"></span>
+                                                    <p>{{ ('collection_90.' ~ i ~ '.title')|trans({}, "biography") }}</p>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="hidden-info exhibitions">
+                                    <span class="close close-hidden"></span>
+                                    <div class="info">
+                                        <ul>
+                                            {% for i in range(1, 12) %}
+                                                <li>
+                                                    <span>{{ ('exhibition_90.' ~ i ~ '.year')|trans({}, "biography") }}</span>
+                                                    <span class="underline"></span>
+                                                    <p>{{ ('exhibition_90.' ~ i ~ '.title')|trans({}, "biography") }}</p>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="hidden-info honors">
+                                    <span class="close close-hidden"></span>
+                                    <div class="info">
+                                        <ul>
+                                            {% for i in range(1, 2) %}
+                                                <li>
+                                                    <span>{{ ('honours_90.' ~ i ~ '.year')|trans({}, "biography") }}</span>
+                                                    <span class="underline"></span>
+                                                    <p>{{ ('honours_90.' ~ i ~ '.title')|trans({}, "biography") }}</p>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section projects">
+                <ul>
+                    <li class="animate" data-shift="200">
+                        <span class="small-rhombus"></span>
+                        <h2>{{ 'block_projects.first.title'|trans({}, "biography") }}</h2>
+                        <span class="date">{{ 'block_projects.first.year'|trans({}, "biography") }}</span>
+                        <span class="underline"></span>
+                        <p>{{ 'block_projects.first.text'|trans({}, "biography") }}</p>
+                    </li>
+                    <li class="animate" data-shift="200">
+                        <span class="small-rhombus"></span>
+                        <h2>{{ 'block_projects.second.title'|trans({}, "biography") }}</h2>
+                        <span class="date">{{ 'block_projects.second.year'|trans({}, "biography") }}</span>
+                        <span class="underline"></span>
+                        <p>{{ 'block_projects.second.text'|trans({}, "biography") }}</p>
+                    </li>
+                </ul>
+                <div class="hidden-holder">
+                    <div class="button-holder">
+                        <span class="button vice-versa" data-type="collections"><span>{{ 'collection_00.title'|trans({}, "biography") }}</span></span>
+                        <span class="button vice-versa" data-type="exhibitions"><span>{{ 'exhibition_00.title'|trans({}, "biography") }}</span></span>
+                        <span class="button vice-versa" data-type="honors"><span>{{ 'honours_00.title'|trans({}, "biography") }}</span></span>
+                    </div>
+                    <div class="hidden-info collections">
+                        <span class="close close-hidden"></span>
+                        <div class="info">
+                            <ul>
+                                {% for i in range(1, 8) %}
+                                    <li>
+                                        <span>{{ ('collection_00.' ~ i ~ '.year')|trans({}, "biography") }}</span>
+                                        <span class="underline"></span>
+                                        <p>{{ ('collection_00.' ~ i ~ '.title')|trans({}, "biography") }}</p>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="hidden-info exhibitions">
+                        <span class="close close-hidden"></span>
+                        <div class="info">
+                            <ul>
+                                {% for i in range(1, 8) %}
+                                    <li>
+                                        <span>{{ ('exhibition_00.' ~ i ~ '.year')|trans({}, "biography") }}</span>
+                                        <span class="underline"></span>
+                                        <p>{{ ('exhibition_00.' ~ i ~ '.title')|trans({}, "biography") }}</p>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="hidden-info honors">
+                        <span class="close close-hidden"></span>
+                        <div class="info">
+                            <ul>
+                                {% for i in range(1, 1) %}
+                                    <li>
+                                        <span>{{ ('honours_00.' ~ i ~ '.year')|trans({}, "biography") }}</span>
+                                        <span class="underline"></span>
+                                        <p>{{ ('honours_00.' ~ i ~ '.title')|trans({}, "biography") }}</p>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <ul>
+                    <li class="animate" data-shift="200">
+                        <span class="small-rhombus"></span>
+                        <h2>{{ 'block_projects.third.title'|trans({}, "biography") }}</h2>
+                        <span class="date">{{ 'block_projects.third.year'|trans({}, "biography") }}</span>
+                        <span class="underline"></span>
+                        <p>{{ 'block_projects.third.text'|trans({}, "biography") }}</p>
+                    </li>
+                </ul>
+                <div class="hidden-holder">
+                    <div class="button-holder">
+                        <span class="button vice-versa" data-type="collections"><span>{{ 'collection_10.title'|trans({}, "biography") }}</span></span>
+                        <span class="button vice-versa" data-type="honors"><span>{{ 'honours_10.title'|trans({}, "biography") }}</span></span>
+                    </div>
+                    <div class="hidden-info collections">
+                        <span class="close close-hidden"></span>
+                        <div class="info">
+                            <ul>
+                                {% for i in range(1, 11) %}
+                                    <li>
+                                        <span>{{ ('collection_10.' ~ i ~ '.year')|trans({}, "biography") }}</span>
+                                        <span class="underline"></span>
+                                        <p>{{ ('collection_10.' ~ i ~ '.title')|trans({}, "biography") }}</p>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="hidden-info honors">
+                        <span class="close close-hidden"></span>
+                        <div class="info">
+                            <ul>
+                                {% for i in range(1, 2) %}
+                                    <li>
+                                        <span>{{ ('honours_10.' ~ i ~ '.year')|trans({}, "biography") }}</span>
+                                        <span class="underline"></span>
+                                        <p>{{ ('honours_10.' ~ i ~ '.title')|trans({}, "biography") }}</p>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% include "AppBundle:Common:footer.html.twig" %}
+
+        </main>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {% javascripts
+        'bundles/app/js/lib/perfect-scrollbar.jquery.min.js'
+        'bundles/app/js/modules/toggleScroll.js'
+        'bundles/app/js/modules/menu.js'
+        'bundles/app/js/modules/hiddenPanel.js'
+        'bundles/app/js/modules/biography.js'
+        'bundles/app/js/app/biographyApp.js' output='bundles/app/js/compiled/compiled_biography.js' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

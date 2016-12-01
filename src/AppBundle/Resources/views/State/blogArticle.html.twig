@@ -1,0 +1,106 @@
+{# src/AppBundle/Resources/views/State/blogArticle.html.twig #}
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block title %}
+    {{ metadata.title|default("") }} | {{ 'common.title'|trans }}
+{% endblock %}
+
+{% block meta %}
+    <meta name="description" content="{{ metadata.description|default("") }}">
+    <meta name="robots" content="{{ metadata.robots }}">
+    {# Locale reference #}
+    <link rel="canonical" href="{{ url('blog_default', { 'articleId': article.id, 'slug': article.slug }) }}">
+    <link rel="alternate" href="{{ url('blog', { '_locale': "en", 'articleId': article.id, 'slug': article.slug }) }}" hreflang="en-us">
+    <link rel="alternate" href="{{ url('blog', { '_locale': "ru", 'articleId': article.id, 'slug': article.slug }) }}" hreflang="ru-ru">
+    <link rel="alternate" href="{{ url('blog', { '_locale': "ru", 'articleId': article.id, 'slug': article.slug }) }}" hreflang="x-default">
+    {# Open Graph #}
+    <meta property="og:title" content="{{ article.title }}">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{ url('blog', { 'articleId': article.id, 'slug': article.slug }) }}">
+    <meta property="og:description" content="{{ article.contentShort(400) }}">
+
+    {% if article.videoId %}
+        <meta property="og:image" content="https://img.youtube.com/vi/{{ article.videoId }}/0.jpg">
+        <meta property="og:video" content="https://www.youtube.com/v/{{ article.videoId }}">
+        <meta property="og:type" content="video">
+    {% elseif article.uploadedFile.0 is defined %}
+        <meta property="og:image" content="{{ asset(article.uploadedFile.0.getImagePath, absolute=true) }}">
+        <meta property="og:image:type" content="image/jpg">
+    {% else %}
+        <meta property="og:image" content="{{ asset('bundles/app/images/portrait-photo.jpg', absolute=true) }}">
+        <meta property="og:image:type" content="image/jpg">
+    {% endif %}
+
+    <meta property="og:locale" content="{{ ( app.request.locale == default_locale ) ? 'ru_RU' : 'en_US' }}">
+    <meta property="og:site_name" content="{{ 'common.title'|trans }}">
+    <meta property="article:published_time" content="{{ article.date|date("Y-m-d") }}">
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {% stylesheets
+        'bundles/app/css/fonts_import.css'
+        'bundles/app/css/reset.css'
+        'bundles/app/css/common.css'
+        'bundles/app/css/blog.css' output='bundles/app/css/compiled/compiled_blogArticle.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}">
+    {% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+    <div id="post-holder">
+        <div class="intro">
+            <div class="headline-holder">
+                <div class="inner">
+                    <div class="headline">
+                        <span class="subscription top">{{ 'blogArticle.views'|transchoice(article.views) }}</span>
+                        <h1>{{ article.title }}</h1>
+                        <span class="subscription">
+                            {{ article.date|date("j") }} {{ (article.date|date("F")|lower)|trans({}, "monthNames") }},
+                            {{ article.date|date("Y") }}
+                        </span>
+                    </div>
+                    <ul class="social-likes social-likes_notext" data-counters="no">
+                        <li class="facebook"></li>
+                        <li class="vkontakte"></li>
+                        <li class="twitter"></li>
+                    </ul>
+                </div>
+                <span class="arrow"></span>
+            </div>
+        </div>
+        <article class="post">
+            <header>
+                <h2>{{ article.title }}</h2>
+                <ul class="social-likes social-likes_notext" data-counters="no">
+                    <li class="facebook"></li>
+                    <li class="vkontakte"></li>
+                    <li class="twitter"></li>
+                </ul>
+            </header>
+
+            {{ article.content|raw }}
+
+            {% if article.videoId %}
+                <iframe width="420" height="345" src="http://www.youtube.com/embed/{{ article.videoId }}?autoplay=0" frameborder="0" allowfullscreen></iframe>
+            {% endif %}
+            <div class="button-holder">
+                <a href="{{ path('blog') }}" class="button vice-versa"><span>{{ 'blogArticle.backlink'|trans|lower }}</span></a>
+            </div>
+        </article>
+        <a href="{{ path('blog') }}" class="close" title="{{ 'blogArticle.backlink'|trans }}"></a>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/social-likes/3.0.14/social-likes.min.js"></script>
+
+    {% javascripts
+        'bundles/app/js/modules/post.js'
+        'bundles/app/js/app/postApp.js' output='bundles/app/js/compiled/compiled_blogArticle.js' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

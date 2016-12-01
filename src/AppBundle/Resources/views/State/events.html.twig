@@ -1,0 +1,97 @@
+{# src/AppBundle/Resources/views/State/events.html.twig #}
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block title %}
+    {{ metadata.title|default("") }} | {{ 'common.title'|trans }}
+{% endblock %}
+
+{% block meta %}
+    <meta name="description" content="{{ metadata.description|default("") }}" >
+    <meta name="robots" content="{{ metadata.robots }}">
+    {# Locale reference #}
+    <link rel="canonical" href="{{ url('events_default') }}" />
+    <link rel="alternate" href="{{ url('events', { '_locale': "en" }) }}" hreflang="en-us" />
+    <link rel="alternate" href="{{ url('events', { '_locale': "ru" }) }}" hreflang="ru-ru" />
+    <link rel="alternate" href="{{ url('events', { '_locale': "ru" }) }}" hreflang="x-default" />
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {% stylesheets
+        'bundles/app/css/fonts_import.css'
+        'bundles/app/css/reset.css'
+        'bundles/app/css/common.css'
+        'bundles/app/css/affiche.css' output='bundles/app/css/compiled/compiled_events.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}">
+    {% endstylesheets %}
+{% endblock %}
+
+{% block sideBar %}
+    {% include "AppBundle:Common:header.html.twig" with {
+        'icon': "affiche-icon.png", 'headline': 'events.headline'|trans, 'subheadline': 'events.subheadline'|trans
+    } %}
+
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+    <main id="content">
+        <div class="grid s1200 clearfix lift-up-container" id="event-list">
+            {% for event in events %}
+                <div class="row">
+                    <article class="cell event lift-up-item">
+                        <time date-time="{{ event.datetime|date("Y-m-d") }}">
+                            <span class="day">{{ event.datetime|date("d") }}</span>
+                            <span class="year">{{ (event.datetime|date("F")|lower)|trans({}, "monthNames") }}</span>
+                            <span class="month">{{ event.datetime|date("Y") }}</span>
+                        </time>
+                        <div class="title">
+                            <h2>
+                                {% if (event.datetime|date("H") != "00") and (event.datetime|date("i") != "00") %}
+                                    {{ event.datetime|date("H:i") }} -
+                                {% endif %}
+                                {{ event.title }}
+                            </h2>
+                        </div>
+                        <div class="place">
+                            <span class="city">{{ event.city }}</span>
+                            <span class="address">{{ event.address }}</span>
+                        </div>}
+                        {% if event.link %}
+                            <div class="button-holder">
+                                <a href="{{ event.link }}" class="button"><span>{{ 'events.details'|trans }}</span></a>
+                            </div>
+                        {% else %}
+                            <div class="empty-holder">
+                                <p>{{ 'events.no_details'|trans }}</p>
+                            </div>
+                        {% endif %}
+                    </article>
+                </div>
+            {% else %}
+                <span class="empty-content">{{ 'events.empty'|trans }}</span>
+            {% endfor %}
+        </div>
+        <div id="loader-holder">
+            <div class="loader"><span class="fa fa-spinner"></span></div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.min.js"></script>
+
+    {% javascripts
+        'bundles/app/js/modules/helpers.js'
+        'bundles/app/js/modules/toggleScroll.js'
+        'bundles/app/js/modules/menu.js'
+        'bundles/app/js/modules/loadTemplate.js'
+        'bundles/app/js/modules/lift.js'
+        'bundles/app/js/modules/affiche.js'
+        'bundles/app/js/app/afficheApp.js' output='bundles/app/js/compiled/compiled_events.js' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

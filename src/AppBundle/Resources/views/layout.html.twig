@@ -1,0 +1,30 @@
+{# src/AppBundle/Resources/views/layout.html.twig #}
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+{% endblock %}
+
+{% block body %}
+    <div id="page">
+        {% block sideBar %}
+            {% include "AppBundle:Common:sideMenu.html.twig" %}
+        {% endblock %}
+
+        {% block content %}{% endblock %}
+    </div>
+
+    {% block footer %}
+        {% include "AppBundle:Common:footer.html.twig" %}
+    {% endblock %}
+{% endblock %}
+
+{% block javascripts %}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+
+    {% include "AppBundle:Common:analytics.html.twig" %}
+    {% include "AppBundle:Common:metrika.html.twig" %}
+{% endblock %}

@@ -1,0 +1,7 @@
+# src/AppBundle/Resources/translations/responses.ru.yml
+feedback:
+    success: Спасибо за ваш интерес! Я обязательно отвечу
+    fail:    Что-то пошло не так. Пожалуйста, попробуйте отправить сообщение еще раз
+
+search:
+    no_results: По данным словам ничего не найдено

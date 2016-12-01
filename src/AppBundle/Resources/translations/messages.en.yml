@@ -1,0 +1,86 @@
+# src/AppBundle/Resources/translations/messages.en.yml
+fallback:
+    explanation: >
+        Current website version does not support mobile devices. It does not mean that you're not allowed to enter, but
+        doing so you might dramatically spoil your experience!
+    link: Proceed anyway
+
+common:
+    title: Andrey Makarevich Personal Site
+    tooltip:
+        feedback: Leave a message for me
+        search:   Search
+    menu: Menu
+    footer: >
+        © Andrey Makarevich. Web Production by <a href="%developers_agency_link%">%developers_agency_name%</a>, 2015 - %current_year%.
+        Usage of the website personal materials without owner's permission is prohibited.
+
+404:
+    title:    404
+    headline: Page not found
+    backlink: Back to homepage
+
+index:
+    headline:
+        h1: Makarevich
+        h2: Andrey
+    subheadline:
+        one: personal
+        two: blog
+
+events:
+    headline:    Events
+    subheadline: affiche
+    empty: >
+        Сurrently no upcoming events scheduled
+    details:     tickets
+    no_details:  no tickets
+
+music:
+    headline:     Music
+    subheadline:  albums
+    empty_albums: >
+        Unfotunately, albums catalog is empty
+    empty_songs: >
+        Songs list for this album is empty
+    details:      details
+    songs_number: '{0}|{1} 1 song|]2,Inf] %count% songs'
+    buy:          buy
+    songs:        Songs
+    description:  Abstract
+    time_not_set: time is not set
+
+books:
+    headline:       Literature
+    subheadline:    books
+    empty: >
+        Unfotunately, books catalog is empty
+    details:        details
+    pages_number:   '{0}|{1} 1 page|]2,Inf] %count% pages'
+    buy:            buy
+    no_description: No abstract available
+
+pictures:
+    headline:       Art
+    subheadline:    pictures
+    empty: >
+        Unfotunately, gallery is empty
+
+blogList:
+    headline:    Blog
+    subheadline: posts
+    empty: >
+        Unfotunately, there are no blog posts for now
+    details:     read
+
+blogArticle:
+    views:    '{0}|{1} 1 view|]2,Inf] %count% views'
+    backlink: Back to blog
+
+biography:
+    headline:    Biography
+    subheadline: about me
+
+search:
+    question: Looking for something?
+    details:  more...

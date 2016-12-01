@@ -1,0 +1,148 @@
+{# src/AppBundle/Resources/views/State/music.html.twig #}
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block title %}
+    {{ metadata.title|default("") }} | {{ 'common.title'|trans }}
+{% endblock %}
+
+{% block meta %}
+    <meta name="description" content="{{ metadata.description|default("") }}" >
+    <meta name="robots" content="{{ metadata.robots }}">
+    {# Locale reference #}
+    <link rel="canonical" href="{{ url('music_default') }}" />
+    <link rel="alternate" href="{{ url('music', { '_locale': "en" }) }}" hreflang="en-us" />
+    <link rel="alternate" href="{{ url('music', { '_locale': "ru" }) }}" hreflang="ru-ru" />
+    <link rel="alternate" href="{{ url('music', { '_locale': "ru" }) }}" hreflang="x-default" />
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {% stylesheets
+        'bundles/app/css/fonts_import.css'
+        'bundles/app/css/perfect-scrollbar.min.css'
+        'bundles/app/css/reset.css'
+        'bundles/app/css/common.css'
+        'bundles/app/css/music.css' output='bundles/app/css/compiled/compiled_music.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}">
+    {% endstylesheets %}
+{% endblock %}
+
+{% block sideBar %}
+    {% include "AppBundle:Common:header.html.twig" with {
+        'icon': "music-icon.png", 'headline': 'music.headline'|trans, 'subheadline': 'music.subheadline'|trans
+    } %}
+
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+    <main id="content">
+        <div class="grid s1200" id="album-list">
+            {% for album in albums %}
+                {% if loop.first %}
+                    <div class="row">
+                {% endif %}
+
+                <div class="cell album" data-album-id="{{ album.id }}">
+                    <div class="inner">
+                        <a href="#{{ album.slug }}">
+                            <figure><img src="{{ vich_uploader_asset(album, 'coverFile')|imagine_filter('album_thumb') }}" alt="{{ album.coverName }}"></figure>
+                            <div class="info">
+                                <h2>{{ album.title|truncate(60) }}</h2>
+                                <span class="year">{{ album.year }}</span>
+                                <span class="smallRhombus"></span>
+                                <span href="#" class="button"><span>{{ 'music.details'|trans }}</span></span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                {% if loop.last %}
+                    </div>
+                {% elseif loop.index is divisible by(4) %}
+                    </div>
+                    <div class="row">
+                {% endif %}
+            {% else %}
+                {{ 'music.empty_albums'|trans }}
+            {% endfor %}
+        </div>
+        <section class="popUp" id="album">
+            <span class="close vise-versa"></span>
+
+            {% for album in albums %}
+                <div class="album album-{{ album.id }}">
+                    <article class="content">
+                        <header class="headline">
+                            <span class="subscription top">{{ 'music.songs_number'|transchoice(album.songsNumber) }}</span>
+                            <h2>{{ album.title }}</h2>
+                            <span class="subscription">{{ album.year }}</span>
+                        </header>
+                        <div class="album-info">
+                            <div class="album-cover">
+                                <figure><img src="{{ vich_uploader_asset(album, 'coverFile') }}" alt="{{ album.coverName }}"></figure>
+                                {% if album.buyLink %}
+                                    <a href="{{ album.buyLink }}" class="button vice-versa" target="_blank"><span>{{ 'music.buy'|trans }}</span></a>
+                                {%  endif %}
+                            </div>
+                            <div class="album-content">
+                                <div class="tabs">
+                                    <ul>
+                                        <li class="tab-label"><span>{{ 'music.songs'|trans }}</span></li>
+                                        {% if album.description %}
+                                            <li class="tab-label"><span>{{ 'music.description'|trans }}</span></li>
+                                        {% endif %}
+                                    </ul>
+                                    <div class="tab-content track-list">
+                                        <ul>
+                                            {% for albumSong in album.albumSongs %}
+                                                <li>
+                                                    <span class="song-number">{{ albumSong.position }}</span>
+                                                    <span class="song-rhombus"></span>
+                                                    <span class="song-name">{{ albumSong.title }}</span>
+                                                    <span class="song-time">
+                                                        {% if not albumSong.durationMinutes and not albumSong.durationSeconds %}
+                                                            {{ 'music.time_not_set'|trans }}
+                                                        {% else %}
+                                                            {{ ( albumSong.durationMinutes ) ? "%02d"|format(albumSong.durationMinutes) : "00" }}
+                                                            :
+                                                            {{ ( albumSong.durationSeconds ) ? "%02d"|format(albumSong.durationSeconds) : "00" }}
+                                                        {% endif %}
+                                                    </span>
+                                                </li>
+                                            {% else %}
+                                                <span class="empty-content">{{ 'music.empty_songs'|trans }}</span>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                    <div class="tab-content description">
+
+                                        {{ album.description|raw }}
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            {% endfor %}
+
+        </section>
+    </main>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {% javascripts
+        'bundles/app/js/lib/perfect-scrollbar.jquery.min.js'
+        'bundles/app/js/modules/toggleScroll.js'
+        'bundles/app/js/modules/popUp.js'
+        'bundles/app/js/modules/menu.js'
+        'bundles/app/js/modules/music.js'
+        'bundles/app/js/modules/tabs.js'
+        'bundles/app/js/app/musicApp.js' output='bundles/app/js/compiled/compiled_music.js' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

@@ -1,0 +1,5 @@
+# src/AppBundle/Resources/translations/emails.ru.yml
+feedback:
+    no_subject:   Тема сообщения не указана
+    sent_message: отправил новое сообщение обратной связи
+    at_date:      Сообщение было отправлено в

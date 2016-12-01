@@ -1,0 +1,64 @@
+{# src/AppBundle/Resources/views/State/search.html.twig #}
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    {{ metadata.title|default("") }} | {{ 'common.title'|trans }}
+{% endblock %}
+
+{% block meta %}
+    <meta name="description" content="{{ metadata.description|default("") }}" >
+    <meta name="robots" content="{{ metadata.robots }}">
+    {# Locale reference #}
+    <link rel="canonical" href="{{ url('search_default') }}" />
+    <link rel="alternate" href="{{ url('search', { '_locale': "en" }) }}" hreflang="en-us" />
+    <link rel="alternate" href="{{ url('search', { '_locale': "ru" }) }}" hreflang="ru-ru" />
+    <link rel="alternate" href="{{ url('search', { '_locale': "ru" }) }}" hreflang="x-default" />
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    {% stylesheets
+        'bundles/app/css/fonts_import.css'
+        'bundles/app/css/reset.css'
+        'bundles/app/css/common.css'
+        'bundles/app/css/search.css' output='bundles/app/css/compiled/compiled_search.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}">
+    {% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+    <div id="page">
+        <div class="search-holder">
+            {% set previousRoute = ( previousRoute ) ?: 'index' %}
+            <a href="{{ path(previousRoute, { '_locale': app.request.locale }) }}" class="close vise-versa"></a>
+            {% render controller('AppBundle:Form:searchForm', { '_locale': app.request.locale }) %}
+        </div>
+        <div id="search-result">
+            <div id="loading">
+                <span class="fa fa-spinner"></span>
+            </div>
+            <ul id="results"></ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.2/handlebars.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
+
+    {% javascripts
+        'bundles/app/js/modules/helpers.js'
+        'bundles/app/js/modules/loadTemplate.js'
+        'bundles/app/js/modules/search.js'
+        'bundles/app/js/app/searchApp.js' output='bundles/app/js/compiled/compiled_search.js' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    {% include "AppBundle:Common:analytics.html.twig" %}
+    {% include "AppBundle:Common:metrika.html.twig" %}
+{% endblock %}

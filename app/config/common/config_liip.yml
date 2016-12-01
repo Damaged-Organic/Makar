@@ -1,0 +1,41 @@
+# app/config/common/config_liip.yml
+liip_imagine:
+    resolvers:
+       default:
+          web_path:
+              web_root:     %kernel.root_dir%/../web
+              cache_prefix: media/cache
+
+    loaders:
+       default:
+          filesystem:
+             data_root: %kernel.root_dir%/../web/
+
+    filter_sets:
+        cache: ~
+
+        album_thumb:
+            quality: 100
+            filters:
+                thumbnail: { size: [350, 350], mode: outbound }
+
+        book_thumb:
+            quality: 100
+            filters:
+                relative_resize: { widen: 350 }
+
+        picture_thumb:
+            quality: 100
+            filters:
+                thumbnail: { size: [320, 320], mode: outbound }
+
+        picture_watermark:
+            filters:
+                watermark:
+                    # Relative path to the watermark file (prepended with "%kernel.root_dir%/")
+                    image: ../web/bundles/app/images/sign-black-watermark.png
+                    # Size of the watermark relative to the origin images size
+                    size: 0.2
+                    # Position: One of topleft,top,topright,left,center,right,bottomleft,bottom,bottomright
+                    position: topright
+                relative_resize: { heighten: 440 }
