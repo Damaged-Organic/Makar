@@ -1,0 +1,25 @@
+{{#each events}}
+	<div class="row">
+	<article class="cell event lift-up-item">
+		<time date-time="{{ date }}">
+			{{{fomatHtmlDate date}}}
+		</time>
+		<div class="title">
+			<h2>{{ title }}</h2>
+		</div>
+		<div class="place">
+			<span class="city">{{ city }}</span>
+			<span class="address">{{ address }}</span>
+		</div>
+		{{#if link}}
+		<div class="button-holder">
+			<a href="{{ link }}" class="button"><span>{{ link_label }}</span></a>
+		</div>
+		{{else}}
+			<div class="empty-holder">
+				<p>{{ link_label }}</p>
+			</div>
+		{{/if}}
+	</article>
+	</div>
+{{/each}}

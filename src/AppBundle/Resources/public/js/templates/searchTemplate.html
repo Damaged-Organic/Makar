@@ -1,0 +1,8 @@
+{{#each searchResults}}
+<li>
+	<time datetime="{{!-- this.date --}}">{{!-- dateFormat this.date --}}</time>
+	<span class="category-label">{{ this.label }}</span>
+	<p>{{ this.title }}</p>
+	<a href="{{ this.link }}">{{ this.link_name }}</a>
+</li>
+{{/each}}

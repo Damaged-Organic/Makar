@@ -1,0 +1,287 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	page start								  				*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#page{
+	height: 100%;
+	overflow: visible;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	page end								  				*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	envelope start							  				*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.envelope .inner{
+	width: 100%;
+	max-width: 1200px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-o-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+	overflow: hidden;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	envelope end							  				*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	envelope form start					  				*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#envelopeForm{
+	width: 100%;
+	margin: 50px auto;
+	overflow: hidden;
+}
+#envelopeForm .input-area{
+	width: 70%;
+	height: 50px;
+	margin: 0 auto 10px;
+	padding-top: 30px;
+	position: relative;
+	-webkit-transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+	-o-transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+	transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+	overflow: hidden;
+}
+#envelopeForm .input-area label.label{
+	display: block;
+	width: 100%;
+	height: 50px;
+	position: absolute;
+	top: 30px;
+	left: 0;
+	z-index: 10;
+	background: #FEFCFF;
+	cursor: text;
+	-webkit-transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+	-o-transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+	transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+	overflow: hidden;
+}
+#envelopeForm .input-area label.error{
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	top: 0;
+	font-family: "Open Sans Condensed", sans-serif;
+	font-size: 0.875em;
+	color: #990000;
+	background: transparent;
+	overflow: hidden;
+}
+#envelopeForm .input-area label.label:after{
+	display: block;
+	width: 100%;
+	height: 1px;
+	background: #000;
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	-webkit-transform: scale(1);
+	-ms-transform: scale(1);
+	-o-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+	-o-transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+	transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+	overflow: hidden;
+}
+#envelopeForm .input-area label.label span{
+	display: inline-block;
+	padding-top: 15px;
+	font-size: 1em;
+	-webkit-transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+	-o-transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+	transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+	color: #000;
+}
+#envelopeForm input{
+	width: 100%;
+	height: 50px;
+	border: none;
+	background: #000;
+	font-family: "Open Sans Condensed", sans-serif;
+	text-align: left;
+	font-size: 1em;
+	padding: 10px;
+	color: #FEFCFF;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+#envelopeForm textarea{
+	width: 100%;
+	height: 200px;
+	border: none;
+	padding: 10px;
+	background: #000;
+	font-family: "Open Sans Condensed", sans-serif;
+	text-align: left;
+	font-size: 1em;
+	color: #FEFCFF;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	resize: none;
+}
+#envelopeForm button{
+	display: block;
+	width: 180px;
+	height: 50px;
+	margin: 40px auto;
+	background: #000;
+	padding: 0;
+	position: relative;
+	border: none;
+	-webkit-transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+	-o-transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+	transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+	overflow: hidden;
+}
+#envelopeForm button:before,
+#envelopeForm button:after{
+	display: block;
+	width: 1px;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: #000;
+	content: "";
+}
+#envelopeForm button:after{
+	left: 100%;
+	margin-left: -1px;
+}
+#envelopeForm button span{
+	display: inline-block;
+	text-align: center;
+	line-height: 50px;
+	font-size: 1em;
+	color: #FEFCFF;
+	-webkit-transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+	-o-transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+	transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+	text-transform: lowercase;
+}
+
+#envelopeForm .input-area.active label.label{
+	height: 30px;
+	top: 0;
+}
+#envelopeForm .input-area.active label.label:after{
+	-webkit-transform: scale(0, 1);
+	-ms-transform: scale(0, 1);
+	-o-transform: scale(0, 1);
+	transform: scale(0, 1);
+}
+
+#envelopeForm .input-area.active label.label span{ padding: 5px; }
+#envelopeForm .input-area.text.active{ height: 200px; }
+
+#envelopeForm button:hover{ background: #FEFCFF; }
+#envelopeForm button:hover span{ color: #000; }
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	envelope form end						 				*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	envelope loading start					 				*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#loading{
+	display: none;
+	width: 60px;
+	height: 60px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	text-align: center;
+	overflow: hidden;
+}
+#loading.active{
+	display: block;
+}
+#loading span{
+	display: inline-block;
+	font-size: 2em;
+	line-height: 60px;
+	color: #000;
+	-webkit-animation: spin 1s linear 0s infinite;
+	-o-animation: spin 1s linear 0s infinite;
+	animation: spin 1s linear 0s infinite;
+}
+@-webkit-keyframes spin{
+	0% { -webkit-transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(360deg); }
+}
+@-moz-keyframes spin{
+	0% { -moz-transform: rotate(0deg); }
+	100% { -moz-transform: rotate(360deg); }
+}
+@-ms-keyframes spin{
+	0% { -ms-transform: rotate(0deg); }
+	100% { -ms-transform: rotate(360deg); }
+}
+@-o-keyframes spin{
+	0% { -o-transform: rotate(0deg); }
+	100% { -o-transform: rotate(360deg); }
+}
+@keyframes spin{
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	envelope loadig end					 				*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	envelope message start					 			*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#message{
+	width: 100%;
+	max-width: 800px;
+	height: 40px;
+	background: #000;
+	position: fixed;
+	top: 0;
+	left: 50%;
+	opacity: 0;
+	-webkit-transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+	-o-transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+	transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+	-webkit-transform: translateX(-50%) translateY(-100%);
+	-ms-transform: translateX(-50%) translateY(-100%);
+	-o-transform: translateX(-50%) translateY(-100%);
+	transform: translateX(-50%) translateY(-100%);
+	overflow: hidden;
+}
+#message.active{
+	opacity: 1;
+	-webkit-transform: translateX(-50%) translateY(0%);
+	-ms-transform: translateX(-50%) translateY(0%);
+	-o-transform: translateX(-50%) translateY(0%);
+	transform: translateX(-50%) translateY(0%);
+}
+#message span{
+	display: inline-block;
+	line-height: 40px;
+	font-size: 1em;
+	padding: 0 20px;
+	color: #FEFCFF;
+}
+#message span.fa{
+	float: right;
+	margin: 0 20px;
+	padding: 0;
+	font-size: 1em;
+	cursor: pointer;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	envelope message end				 				*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+

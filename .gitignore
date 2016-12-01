@@ -17,7 +17,8 @@
 
 /src/AppBundle/Resources/front/node_modules/*
 /src/AppBundle/Resources/front/jspm_packages/*
-/src/AppBundle/Resources/public/*
+/src/AppBundle/Resources/public/css/compiled/*
+/src/AppBundle/Resources/public/js/compiled/*
 /src_old/*
 
 /vendor/

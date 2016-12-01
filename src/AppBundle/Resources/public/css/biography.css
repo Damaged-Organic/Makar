@@ -1,0 +1,349 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	header start							 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#header .headline .icon{
+	bottom: auto;
+	top: -30px;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	header end							 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	grid start								 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#page, #content{
+	height: 100%;
+	min-height: 100%;
+	overflow: visible;
+}
+#content{
+	padding: 0;
+	margin: 0;
+}
+#content .section{
+	position: relative;
+	background: #FEFCFF;
+}
+#content .section:not(.intro){
+	height: auto;
+	min-height: 100%;
+}
+
+#content .grid .cell.s1{ width: 33.3333333%; }
+#content .grid .cell.s2{ width: 66.6666667%; }
+#content .grid .cell:before{ display: none; }
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	grid end								 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	biography start							 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#content .section .centered{
+	width: 100%;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+	overflow: hidden;
+}
+#content .section h2,
+#content .section span,
+#content .section p{
+	display: block;
+	text-align: center;
+}
+#content .section p{
+	font-family: "Open Sans", Sans-serif;
+}
+#content .section:not(.intro) h2{ font-size: 1.5em; }
+#content .section:not(.intro) span{ font-size: 1em; }
+
+#content .reference{
+	width: 300px;
+	background: #000;
+	position: absolute;
+	top: 0;
+	left: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+#content .reference p{
+	color: #FEFCFF;
+	padding: 50px 25px;
+}
+#content .section .underline{
+	display: block;
+	width: 160px;
+	height: 1px;
+	background: #000;
+	margin: 10px auto;
+	overflow: hidden;
+}
+#content .section .small-rhombus{
+	display: block;
+	width: 14px;
+	height: 14px;
+	background: #000;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+	margin: 10px auto;
+	overflow: hidden;
+}
+#content .section .buttons-holder{
+	text-align: center;
+	margin: 50px 0;
+}
+#content .buttons-holder .button{
+	display: inline-block;
+	width: 140px;
+	height: 40px;
+	cursor: pointer;
+	margin: 0 50px;
+}
+#content .buttons-holder .button > span{
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	biography end							 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	biography intro start					 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#content .section.intro h2{ font-size: 4em; }
+#content .section.intro span{ font-size: 1em; }
+#content .section.intro p{
+	max-width: 800px;
+	margin: 10px auto 0;
+}
+#content .section.intro .arrow-down{
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	left: 50%;
+	bottom: 20px;
+	margin-left: -20px;
+	background: transparent url(../images/icons/arrow-down.png) no-repeat 50% 50%;
+	overflow: hidden;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	biography intro end					 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	biography family start					 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#content .section.family ul{
+	margin: 160px auto 40px;
+	text-align: center;
+}
+#content .section.family .member{
+	display: inline-block;
+	vertical-align: top;
+	width: 300px;
+	margin: 40px;
+}
+#content .section.family .member.sister{
+	width: 100%;
+	margin: 40px 0;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	biography family end					 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	biography genus start					 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#content .section.genus .row{
+	position: relative;
+	margin: 40px auto 0;
+}
+#content .section.genus .cell.s1{ left: 66.6666667%; }
+#content .section.genus .row.vise-versa .cell.s1{ left: 0; }
+#content .section.genus .row.vise-versa .cell.s2{ float: right; }
+#content .section.genus .info p{
+	padding: 100px 40px;
+	max-width: 600px;
+	margin: 0 auto;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	biography genus end					 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	biography education start				 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#content .section.education .grid,
+#content .section.education .row{ margin-bottom: 80px; }
+#content .section.education h2{ margin-bottom: 20px; }
+#content .section.education p{
+	max-width: 700px;
+	margin: 0 auto;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	biography education end					 			 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	biography acitivity start					 			 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#content .section.acitivity .reference{
+	left: auto;
+	right: 0;
+}
+#content .section.acitivity .grid{ margin: 220px auto 0; }
+#content .section.acitivity .row{ margin-bottom: 80px; }
+
+#content .section.acitivity .row:first-child .cell p{
+	padding: 0 100px 20px;
+}
+#content .section.acitivity .row .cell > ul{ text-align: center; }
+#content .section.acitivity .row .cell > ul li{
+	display: inline-block;
+	vertical-align: top;
+	width: 40%;
+	margin: 80px 40px;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	biography acitivity end						 			 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	biography projects start					 			 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#content .section.projects ul li{
+	display: block;
+	width: 100%;
+	max-width: 1000px;
+	margin: 80px auto;
+}
+#content .section.projects ul li:first-child{ margin-top: 0; }
+#content .section.projects ul li p{
+	max-width: 800px;
+	margin: 0 auto;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	biography projects end					 			 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	hidden info start						 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#content .hidden-holder .button-holder{
+	width: 100%;
+	text-align: center;
+	margin: 50px auto;
+	overflow: hidden;
+}
+#content .hidden-holder .button-holder .button{
+	display: inline-block;
+	margin: 0 50px;
+	cursor: pointer;
+}
+#content .hidden-holder .hidden-info{
+	width: 80%;
+	height: 500px;
+	position: fixed;
+	left: 10%;
+	bottom: 0;
+	z-index: 20;
+	background: #000;
+	-webkit-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	transition: all .5s ease;
+	-webkit-transform: translateY(100%);
+	-ms-transform: translateY(100%);
+	-o-transform: translateY(100%);
+	transform: translateY(100%);
+	opacity: 0;
+	overflow: hidden;
+}
+#content .hidden-holder .hidden-info.active{
+	-webkit-transform: translateY(0);
+	-ms-transform: translateY(0);
+	-o-transform: translateY(0);
+	transform: translateY(0);
+	opacity: 1;
+}
+#content .hidden-holder .info{
+	width: 100%;
+	height: 400px;
+	position: relative;
+	margin: 100px 0 0;
+	overflow: hidden;
+}
+#content .hidden-holder .info ul{
+	width: 800px;
+	margin: 20px auto;
+}
+#content .hidden-holder .info ul li{
+	display: block;
+	margin: 0 0 20px 0 !important;
+	overflow: hidden;
+}
+#content .hidden-holder .info ul li span{
+	display: block;
+	text-align: center;
+	color: #FEFCFF;
+	font-size: 1.125em;
+}
+#content .hidden-holder .info ul li p{
+	text-align: center;
+	color: #FEFCFF;
+	font-size: 0.875em;
+	padding: 0 100px;
+}
+#content .hidden-holder .info ul li .underline{
+	display: block;
+	width: 60px;
+	height: 1px;
+	margin: 10px auto 5px;
+	background: #FEFCFF;
+	overflow: hidden;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	hidden info end 						 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	animation start							 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#content .animate{
+	position: relative;
+	-webkit-transform: translateY(20px);
+	-ms-transform: translateY(20px);
+	-o-transform: translateY(20px);
+	transform: translateY(20px);
+	opacity: 0;
+	-webkit-transition: all 1.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+	-o-transition: all 1.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+	transition: all 1.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+#content .animate.ref{ position: absolute; }
+#content .animate.visible{
+	-webkit-transform: translateY(0px);
+	-ms-transform: translateY(0px);
+	-o-transform: translateY(0px);
+	transform: translateY(0px);
+	opacity: 1;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	animation end							 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	footer start								 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#footer{ margin-top: 0; }
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	footer end								 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

@@ -1,0 +1,19 @@
+{{#grouped_each 4 articles}}
+	<div class="row clearfix">
+		{{#each this}}
+			<div class="cell lift-up-item">
+				<div class="inner">
+					<div class="content">
+						<div class="centered">
+							<h2>{{truncate 54 title }}</h2> //|truncate(54)
+							<time datetime="{{ date }}">{{formatDate date }}</time>
+							<span class="smallRhombus"></span>
+							<a href="{{ link }}" class="button"><span>{{ link_label }}</span></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		{{/each}}
+	</div>
+{{/grouped_each}}
+

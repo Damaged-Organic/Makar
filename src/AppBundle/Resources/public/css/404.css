@@ -1,0 +1,85 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	page start								 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#page{
+	background: transparent url(../images/back-photo.jpg) no-repeat 50% 0;
+	background-size: cover;
+}
+
+#page .centered{
+	width: 40%;
+	position: absolute;
+	top: 50%;
+	left: 15%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+	overflow: hidden;
+}
+#page .centered h1{
+	font-size: 3em;
+	text-align: center;
+	color: #FEFCFF;
+	text-transform: uppercase;
+}
+
+#page .triangle{
+	width: 200px;
+	height: 400px;
+	position: fixed;
+	top: 50%;
+	left: 0;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+#page .triangle:before{
+	width: 0;
+	content: "";
+	border-top: 200px solid transparent;
+	border-bottom: 200px solid transparent;
+	border-left: 200px solid #000;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+#page .triangle span{
+	display: block;
+	width: 100%;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	z-index: 10;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+	text-align: center;
+	font-size: 5em;
+	margin-left: -30px;
+	color: #FEFCFF;
+}
+
+#page .button{
+	width: 180px;
+	margin: 20px auto;
+}
+#page .button span{ width: 170px; }
+
+#page .small-rhombus{
+	display: block;
+	width: 16px;
+	height: 16px;
+	margin: 20px auto 30px;
+	background: #FEFCFF;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+	overflow: hidden;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	page end								 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

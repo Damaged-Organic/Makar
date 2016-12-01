@@ -1,0 +1,251 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	header start							 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#header .headline .icon{ top: -34px; }
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	header end							 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	grid start								 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.grid .row{ margin-bottom: 20px; }
+.grid .cell{
+	width: 23.75%;
+	margin-left: 1.666667%;
+	border: 1px solid #000;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.grid .cell:first-child{ margin-left: 0; }
+
+.grid .cell .inner{
+	width: 89.655172%;
+	height: 89.655172%;
+	top: 5.172414%;
+	left: 5.172414%;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	grid end								 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	album-list start							 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#album-list .album a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+}
+#album-list .album a:before,
+#album-list .album a:after{
+	display: block;
+	width: 100%;
+	height: 30%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 5;
+	content: "";
+	background: #000;
+	opacity: 1;
+	-webkit-transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+	-o-transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+	transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+	overflow: hidden;
+}
+#album-list .album a:before{
+	-webkit-transform-origin: 0 100%;
+	-moz-transform-origin: 0 100%;
+	-ms-transform-origin: 0 100%;
+	-o-transform-origin: 0 100%;
+	transform-origin: 0 100%;
+	-webkit-transform: skew(-45deg);
+	-ms-transform: skew(-45deg);
+	-o-transform: skew(-45deg);
+	transform: skew(-45deg);
+}
+#album-list .album a:after{
+	top: 30%;
+	height: 70%;
+}
+#album-list .album figure img{
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+	filter: grayscale(100%);
+	-webkit-transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+	-o-transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+	transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+#album-list .album .info{
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	overflow: hidden;
+}
+#album-list .album .info h2{
+	margin-top: 27%;
+	padding: 0 20px;
+	max-height: 44px;
+}
+#album-list .album .info .year{
+	display: block;
+	color: #FEFCFF;
+	text-align: center;
+	font-size: 1em;
+}
+#album-list .album .smallRhombus{
+	display: block;
+	width: 16px;
+	height: 16px;
+	background: #FEFCFF;
+	margin: 20px auto;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+	overflow: hidden;
+}
+
+#album-list .album:hover a:before,
+#album-list .album:hover a:after{ opacity: 0; }
+#album-list .album:hover figure img{
+	-webkit-filter: grayscale(0%);
+	-moz-filter: grayscale(0%);
+	-ms-filter: grayscale(0%);
+	-o-filter: grayscale(0%);
+	filter: grayscale(0%);
+}
+#album-list .album:hover .info{ display: none; }
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	album-list end							 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	album start 							 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#album{ background: #FEFCFF; }
+#album .album{
+	display: none;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+#album .album .content{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+}
+#album .album .headline{ width: 100%; }
+#album .album .headline .subscription.top{
+	bottom: auto;
+	top: -17px;
+	margin-left: 5px;
+	-webkit-transform: translateX(-100%);
+	-ms-transform: translateX(-100%);
+	-o-transform: translateX(-100%);
+	transform: translateX(-100%);
+}
+#album .album.active{ display: block; }
+
+#album .album .album-info{
+	width: 100%;
+	max-width: 1200px;
+	margin: 200px auto 40px;
+	position: relative;
+	overflow: hidden;
+}
+#album .album .album-cover{
+	width: 25%;
+	float: left;
+	overflow: hidden;
+}
+#album .album .album-cover figure{
+	border: 1px solid #000;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+#album .album .album-cover .button{ margin-top: 20px; }
+
+#album .album .album-content{
+	width: 73.333333%;
+	margin-left: 1.666667%;
+	float: left;
+	overflow: hidden;
+}
+#album .album .album-content .tab-label{ margin-right: 20px; }
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	album end								 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	track-list start							 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#album .album .track-list{
+	width: 100%;
+	overflow: hidden;
+}
+#album .album .track-list ul li{
+	display: block;
+	width: 100%;
+	position: relative;
+	margin: 10px auto;
+	border-bottom: 1px solid #000;
+	padding: 5px 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+#album .album .track-list span{
+	display: inline-block;
+	vertical-align: middle;
+	 font-size: 0.875em;
+}
+#album .album .track-list .song-rhombus{
+	width: 6px;
+	height: 6px;
+	background: #000;
+	margin: 2.5px 5px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+#album .album .track-list .song-time{
+	float: right;
+}
+#album .album .track-list .song-time:after{
+	font-family: "FontAwesome";
+	content: "\f017";
+	font-size: 1em;
+	margin-left: 5px;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	track-list end							 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	description start						 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#album .album .description p{
+	padding: 20px 20px 0 0;
+	text-align: left;
+	font-family: "Open Sans", sans-serif;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	description end						 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+

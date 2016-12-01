@@ -1,0 +1,156 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	form start								 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.search-holder,
+#searchForm{
+	width: 100%;
+	overflow: hidden;
+}
+#searchForm label{
+	display: block;
+	width: 100%;
+	max-width: 1000px;
+	margin: 0px auto 20px;
+	position: relative;
+	overflow: hidden;
+}
+#searchForm label .text{
+	display: block;
+	width: 100%;
+	font-size: 1em;
+	text-align: center;
+}
+#searchForm input{
+	display: inline-block;
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	background: #000;
+	font-family: "Open Sans Condensed", sans-serif;
+	font-size: 3em;
+	padding: 20px;
+	color: #FEFCFF;
+	border: none;
+}
+#searchForm label.error{
+	display: block;
+	width: 400px;
+	height: 23px;
+	line-height: 23px;
+	position: absolute;
+	right: 0;
+	bottom: -20px;
+	background: #000;
+	font-family: "Open Sans Condensed", sans-serif;
+	font-size: 0.875em;
+	color: #fff;
+	text-align: center;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	form end								 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	search loading start					 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#loading{
+	display: none;
+	width: 120px;
+	height: 120px;
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+}
+#loading.active{ display: block; }
+#loading span{
+	font-size: 3em;
+	-webkit-animation: spin 1s linear 0s infinite;
+	-o-animation: spin 1s linear 0s infinite;
+	animation: spin 1s linear 0s infinite;
+}
+@-webkit-keyframes spin{
+	0% { -webkit-transform: rotate(0deg); }
+	100% {  -webkit-transform: rotate(360deg); }
+}
+@-moz-keyframes spin{
+	0% { -moz-transform: rotate(0deg); }
+	100% { -moz-transform: rotate(360deg); }
+}
+@-ms-keyframes spin{
+	0% { -ms-transform: rotate(0deg); }
+	100% { -ms-transform: rotate(360deg); }
+}
+@-o-keyframes spin{
+	0% { -o-transform: rotate(0deg); }
+	100% { -o-transform: rotate(360deg); }
+}
+@keyframes spin{
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	search loading end					 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	search result start						 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#search-result ul{
+	width: 100%;
+	max-width: 1000px;
+	margin: 40px auto;
+}
+#search-result li{
+	display: block;
+	width: 100%;
+	margin-bottom: 40px;
+	position: relative;
+	overflow: hidden;
+}
+#search-result li time{
+	height: 40px;
+	line-height: 40px;
+	border-bottom: 1px solid #000;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+#search-result li .category-label{
+	width: 100px;
+	height: 40px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: #000;
+	line-height: 40px;
+	font-size: 1em;
+	text-align: center;
+	color: #FEFCFF;
+	overflow: hidden;
+}
+#search-result li p{
+	font-size: 1.125em;
+	margin: 10px 0 0;
+}
+#search-result li a{
+	display: inline-block;
+	width: 100px;
+	height: 40px;
+	float: right;
+	line-height: 40px;
+	text-align: center;
+	background: #FEFCFF;
+	color: #000;
+	-webkit-transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+	-o-transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+	transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+	overflow: hidden;
+}
+#search-result li a:hover{
+	background: #000;
+	color: #FEFCFF;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*	search result end						 				 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
